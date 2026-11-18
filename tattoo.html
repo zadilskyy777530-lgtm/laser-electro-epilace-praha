@@ -15,7 +15,7 @@ select{font:inherit;background:#1c1c20;color:var(--ink);border:1px solid var(--l
 .btn{display:inline-block;background:var(--acc);color:#fff;font-weight:800;letter-spacing:.02em;padding:16px 28px;border-radius:40px;cursor:pointer;border:0;font-size:15px;transition:transform .15s}
 .btn:hover{transform:translateY(-2px)}
 .btn.ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
-.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding-bottom:70px;background:linear-gradient(180deg,#0d0d0fbb,#0d0d0f55 40%,#0d0d0ff2),url('https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding-bottom:70px;background:radial-gradient(120% 90% at 80% 10%,#2a1410 0%,#1a0d0b 35%,#0d0d0f 70%),repeating-linear-gradient(135deg,#ffffff06 0 2px,transparent 2px 7px)}
 .hero .eyebrow{font:800 13px monospace;letter-spacing:.3em;color:var(--acc);text-transform:uppercase}
 .hero h1{font-size:clamp(48px,9.5vw,128px);line-height:1.0;letter-spacing:-.05em;font-weight:900;margin:18px 0 20px;text-transform:uppercase}
 .hero p{font-size:clamp(17px,2vw,21px);color:#d9d7cf;max-width:560px;line-height:1.5}
@@ -35,12 +35,13 @@ h2{font-size:clamp(34px,5.5vw,64px);letter-spacing:-.04em;font-weight:900;margin
 .style h3{font-size:26px;margin:14px 0 8px;letter-spacing:-.02em}
 .style p{color:var(--mut);font-size:15px;line-height:1.5;margin:0}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gallery a{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1c1c20;display:block}
-.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;filter:grayscale(.2)}
-.gallery a:hover img{transform:scale(1.07);filter:grayscale(0)}
+.gallery a{position:relative;aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;padding:16px;transition:transform .4s}
+.gallery a span{font:800 12px monospace;letter-spacing:.14em;color:#ffffffcc;text-transform:uppercase;position:relative;z-index:2}
+.gallery a:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff0a 0 3px,transparent 3px 9px);z-index:1}
+.gallery a:hover{transform:scale(.98)}
 .artists{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .artist{background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.artist .ph{aspect-ratio:1/1;background-size:cover;background-position:center;filter:grayscale(.3)}
+.artist .ph{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font:900 64px 'Helvetica Neue',Arial;color:#ffffff22;letter-spacing:-.04em}
 .artist .b{padding:22px}.artist h3{margin:0 0 4px;font-size:23px}
 .artist .role{color:var(--acc);font:800 12px monospace;letter-spacing:.14em;text-transform:uppercase}
 .artist p{color:var(--mut);font-size:14px;line-height:1.5;margin:12px 0 0}
@@ -158,16 +159,13 @@ footer{border-top:1px solid var(--line);padding-top:40px;padding-bottom:40px;col
 
 <script>
 const G=[
- 'https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=700&q=80',
- 'https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=700&q=80',
- 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=700&q=80',
- 'https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=700&q=80',
- 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=700&q=80',
- 'https://images.unsplash.com/photo-1613053341085-db794820ce43?auto=format&fit=crop&w=700&q=80'];
-const AP=[
- 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
- 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
- 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80'];
+ 'radial-gradient(130% 100% at 20% 10%,#3a1d16,#120b0a)',
+ 'radial-gradient(130% 100% at 80% 0%,#241a33,#0e0b12)',
+ 'linear-gradient(160deg,#2a2622,#100e0c)',
+ 'radial-gradient(120% 120% at 50% 100%,#33261a,#0f0c09)',
+ 'linear-gradient(200deg,#1d2a2a,#0c1010)',
+ 'radial-gradient(130% 100% at 10% 90%,#301521,#110a0d)'];
+const AG=['linear-gradient(145deg,#2c1a16,#120c0b)','linear-gradient(145deg,#211a2e,#0e0b12)','linear-gradient(145deg,#232323,#0f0f0f)'];
 const amounts=[1500,2500,'4000+','6000+','1200+'];
 const tr={
 cs:{brand:"INKHOUSE PRAHA",navStyles:"Styly",navWork:"Práce",navArtists:"Umělci",navPrices:"Ceník",navFaq:"FAQ",navContact:"Kontakt",
@@ -226,10 +224,10 @@ function render(lang){
  document.getElementById('mq').textContent=(d.marquee+' · ').repeat(4);
  document.getElementById('stylesGrid').innerHTML=d.styles.map((s,i)=>
   `<div class="style"><div class="n">0${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
- document.getElementById('gallery').innerHTML=G.map(u=>
-  `<a href="#work"><img loading="lazy" src="${u}" alt="Tattoo work"></a>`).join('');
+ document.getElementById('gallery').innerHTML=G.map((bg,i)=>
+  `<a href="#work" style="background:${bg}"><span>FOTO ${String(i+1).padStart(2,'0')}</span></a>`).join('');
  document.getElementById('artistsGrid').innerHTML=d.artists.map((a,i)=>
-  `<div class="artist"><div class="ph" style="background-image:url('${AP[i]}')"></div><div class="b"><div class="role">${a[1]}</div><h3>${a[0]}</h3><p>${a[2]}</p></div></div>`).join('');
+  `<div class="artist"><div class="ph" style="background:${AG[i]}">${a[0].trim().charAt(0)}</div><div class="b"><div class="role">${a[1]}</div><h3>${a[0]}</h3><p>${a[2]}</p></div></div>`).join('');
  document.getElementById('priceRows').innerHTML=d.prices.map(p=>
   `<tr><td>${p[0]}</td><td>${p[1]}</td></tr>`).join('');
  document.getElementById('faqList').innerHTML=d.faq.map(f=>
