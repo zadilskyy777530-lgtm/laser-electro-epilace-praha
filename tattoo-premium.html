@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAISON NOIR · Tattoo Atelier Praha</title>
+<meta name="description" content="Prémiové tetovací studio v Praze. Autorské návrhy na míru, fine line, black & grey, ornamentika. Rezervujte si nezávaznou konzultaci.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#0b0b0d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0b0b0d;--bg2:#121214;--bg3:#17171a;--ink:#ece6da;--mut:#8f8a7e;--gold:#c9a24b;--gold2:#e6c87e;--line:#262428;
+ --serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;background:var(--bg);color:var(--ink);font-family:var(--sans)}
+*{box-sizing:border-box}body{margin:0;overflow-x:hidden}a{color:inherit;text-decoration:none}
+.wrap{padding-left:max(6%,calc((100% - 1200px)/2));padding-right:max(6%,calc((100% - 1200px)/2))}
+.gold{background:linear-gradient(100deg,var(--gold),var(--gold2) 50%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.kicker{font:500 12px var(--sans);letter-spacing:.42em;text-transform:uppercase;color:var(--gold)}
+.serif{font-family:var(--serif)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,60px);letter-spacing:-.01em;line-height:1.02;margin:16px 0 8px}
+.divider{display:flex;align-items:center;gap:14px;color:var(--gold);margin:22px 0}
+.divider:before,.divider:after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,#c9a24b55,transparent)}
+.divider span{width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:500 14px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:.25s}
+.btn.gold{background:linear-gradient(100deg,var(--gold),var(--gold2));color:#1a1407;font-weight:600}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 12px 30px #c9a24b33}
+.btn.out{border-color:#4a463c;color:var(--ink)}.btn.out:hover{border-color:var(--gold);color:var(--gold)}
+.announce{background:#09090a;border-bottom:1px solid var(--line);text-align:center;padding:9px 16px;font-size:12.5px;letter-spacing:.14em;color:#cfc8b8}
+.announce b{color:var(--gold)}
+header{position:sticky;top:0;z-index:60;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:18px;padding-bottom:18px;background:rgba(11,11,13,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.logo{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:.04em}.logo b{color:var(--gold);font-weight:600}
+nav{display:flex;gap:26px}nav a{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}nav a:hover{color:var(--ink)}
+.hdr-cta{display:flex;align-items:center;gap:14px}
+select{font:inherit;background:#1c1c20;color:var(--ink);border:1px solid var(--line);border-radius:2px;padding:9px 10px;cursor:pointer;font-size:12px}
+.hero{position:relative;text-align:center;padding-top:clamp(60px,12vh,130px);padding-bottom:clamp(60px,10vh,110px);overflow:hidden}
+.hero-orn{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:min(78vw,640px);opacity:.07;pointer-events:none;z-index:0}
+.hero-orn svg{width:100%;height:auto}
+.hero>:not(.hero-orn){position:relative;z-index:1}
+.hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(50px,9vw,116px);line-height:.98;letter-spacing:-.015em;margin:20px auto 0;max-width:12ch}
+.hero h1 em{font-style:italic}
+.hero p.sub{color:#c3bdb0;font-size:clamp(16px,1.6vw,19px);line-height:1.6;max-width:600px;margin:26px auto 0;font-weight:300}
+.hero-actions{display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:60px}
+.stat{background:var(--bg);padding:26px 14px}
+.stat .n{font-family:var(--serif);font-size:clamp(30px,3.5vw,44px);color:var(--gold)}
+.stat .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+.stat .n small{font-size:.5em;color:var(--gold2)}
+section{padding-top:92px;padding-bottom:92px}
+.center{text-align:center}.center .divider{max-width:300px;margin-left:auto;margin-right:auto}
+.lead{color:var(--mut);max-width:620px;font-size:17px;line-height:1.65;font-weight:300}
+.center .lead{margin:0 auto}
+/* portfolio */
+.pf{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.piece{position:relative;background:linear-gradient(180deg,#141316,#0e0d10);border:1px solid var(--line);padding:26px 22px 22px;transition:.3s;overflow:hidden}
+.piece:before{content:'';position:absolute;inset:10px;border:1px solid #2a2721;pointer-events:none;transition:.3s}
+.piece:hover{transform:translateY(-6px);border-color:#3a362c}
+.piece:hover:before{inset:7px;border-color:#5a5136}
+.piece .art{height:230px;display:flex;align-items:center;justify-content:center;padding:4px}
+.art svg{width:auto;height:100%;max-width:100%;display:block;overflow:visible}
+.art svg path,.art svg circle{fill:none;stroke:#e7dcc4;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.art svg .th{stroke-width:1.1;opacity:.5}
+.piece:hover .art svg path,.piece:hover .art svg circle{stroke:var(--gold2)}
+.piece .meta{display:flex;justify-content:space-between;align-items:flex-end;margin-top:14px;border-top:1px solid var(--line);padding-top:14px}
+.piece .pname{font-family:var(--serif);font-size:22px}
+.piece .pstyle{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-top:3px}
+.piece .tagpill{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid #3a3426;padding:5px 9px;border-radius:30px;white-space:nowrap}
+/* styles strip */
+.chips{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:34px}
+.chip{border:1px solid var(--line);border-radius:40px;padding:12px 22px;font-size:14px;letter-spacing:.04em;color:#d7d1c4;background:var(--bg2)}
+.chip b{color:var(--gold);font-weight:500}
+/* why */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+.vp{background:var(--bg2);border:1px solid var(--line);padding:32px 28px}
+.vp .ic{width:46px;height:46px;color:var(--gold)}
+.vp h3{font-family:var(--serif);font-weight:500;font-size:25px;margin:18px 0 10px}
+.vp p{color:var(--mut);font-size:15px;line-height:1.6;margin:0;font-weight:300}
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+.step{background:var(--bg);padding:34px 24px}
+.step .sn{font-family:var(--serif);font-size:46px;color:#2e2a22;line-height:1}
+.step h3{font-family:var(--serif);font-weight:500;font-size:22px;margin:12px 0 8px}
+.step p{color:var(--mut);font-size:14px;line-height:1.55;margin:0;font-weight:300}
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;align-items:stretch}
+.plan{background:var(--bg2);border:1px solid var(--line);padding:38px 30px;display:flex;flex-direction:column}
+.plan.feat{border-color:var(--gold);background:linear-gradient(180deg,#1a1710,#121012);position:relative}
+.plan.feat:after{content:attr(data-badge);position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(100deg,var(--gold),var(--gold2));color:#1a1407;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:30px;white-space:nowrap}
+.plan .pt{font-family:var(--serif);font-size:27px}
+.plan .pp{font-family:var(--serif);font-size:44px;color:var(--gold);margin:10px 0 2px}
+.plan .pp small{font-size:.4em;color:var(--mut);letter-spacing:.1em}
+.plan ul{list-style:none;padding:0;margin:22px 0 28px;flex:1}
+.plan li{font-size:14.5px;color:#cfc8ba;padding:10px 0 10px 26px;position:relative;border-bottom:1px solid #1e1c20;font-weight:300}
+.plan li:before{content:'';position:absolute;left:0;top:14px;width:12px;height:7px;border-left:1.5px solid var(--gold);border-bottom:1.5px solid var(--gold);transform:rotate(-45deg)}
+.pnote{color:var(--mut);font-size:13px;text-align:center;margin-top:26px;font-weight:300}
+/* reviews */
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.rev{background:var(--bg2);border:1px solid var(--line);padding:30px 28px}
+.stars{color:var(--gold);letter-spacing:4px;font-size:15px}
+.rev p{font-family:var(--serif);font-style:italic;font-size:20px;line-height:1.45;margin:16px 0 20px;color:#e4ded1}
+.rev .who{display:flex;align-items:center;gap:12px}
+.rev .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#2a2419,#14110c);border:1px solid #3a3426;display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--gold);font-size:18px}
+.rev .nm{font-size:14px}.rev .rl{font-size:12px;color:var(--mut)}
+/* guarantee */
+.guard{background:linear-gradient(120deg,#15130e,#0e0d10);border:1px solid #2a2619;padding:48px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+.gbadges{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gb{border:1px solid var(--line);padding:18px;display:flex;gap:12px;align-items:center;font-size:13.5px;color:#d7d1c4}
+.gb .ic{width:26px;height:26px;color:var(--gold);flex:none}
+/* cta/form */
+.book{background:linear-gradient(180deg,#141316,#0d0c0f);border:1px solid var(--line);padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:46px}
+form{display:flex;flex-direction:column;gap:12px}
+input,textarea{font:inherit;background:var(--bg);border:1px solid var(--line);color:var(--ink);padding:15px 16px;border-radius:2px}
+input:focus,textarea:focus{outline:none;border-color:var(--gold)}
+textarea{min-height:104px;resize:vertical}
+.bk-info p{margin:0 0 16px;font-size:16px;color:#d2ccbe;font-weight:300}
+.bk-info strong{color:var(--ink);font-weight:500}
+.bk-info .mut{color:var(--mut);font-size:13px}
+footer{border-top:1px solid var(--line);padding-top:46px;padding-bottom:46px}
+.ft-grid{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+.ft-grid .mut{color:var(--mut);font-size:13.5px;line-height:1.7;max-width:300px;font-weight:300}
+.ph-warn{background:#1a1309;border:1px solid var(--gold);color:#e9d5a8;padding:14px 18px;border-radius:3px;font-size:13px;margin-top:30px;font-weight:300}
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:12px 16px;background:rgba(11,11,13,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.sticky .btn{flex:1;justify-content:center;padding:14px}
+@media(max-width:860px){
+ nav{display:none}.hdr-cta .btn{display:none}
+ .pf,.grid3,.revs{grid-template-columns:1fr}
+ .plans{grid-template-columns:1fr}.plan.feat{order:-1}
+ .steps,.stats{grid-template-columns:1fr 1fr}
+ .guard,.book{grid-template-columns:1fr;padding:30px}.gbadges{grid-template-columns:1fr}
+ .sticky{display:flex}.hero{padding-bottom:40px}
+ body{padding-bottom:74px}
+}
+</style></head><body>
+
+<div class="announce" id="announce"></div>
+
+<header class="wrap">
+  <div class="logo">MAISON <b>NOIR</b></div>
+  <nav>
+    <a href="#work" data-i="navWork">Portfolio</a>
+    <a href="#styles" data-i="navStyles">Styly</a>
+    <a href="#process" data-i="navProcess">Proces</a>
+    <a href="#prices" data-i="navPrices">Ceník</a>
+    <a href="#reviews" data-i="navReviews">Recenze</a>
+  </nav>
+  <div class="hdr-cta">
+    <a class="btn gold" href="#book" data-i="book">Rezervovat</a>
+    <select id="lang" aria-label="Language">
+      <option value="cs">CS</option><option value="ru">RU</option>
+      <option value="uk">UK</option><option value="en">EN</option>
+    </select>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="hero-orn" id="heroOrn"></div>
+  <div class="kicker" data-i="heroKicker">Tetovací atelier · Praha</div>
+  <h1 data-i="heroH1"></h1>
+  <p class="sub" data-i="heroSub"></p>
+  <div class="hero-actions">
+    <a class="btn gold" href="#book" data-i="heroCta1">Nezávazná konzultace</a>
+    <a class="btn out" href="#work" data-i="heroCta2">Prohlédnout portfolio</a>
+  </div>
+  <div class="stats" id="stats"></div>
+</section>
+
+<section class="wrap" id="work">
+  <div class="center">
+    <div class="kicker" data-i="pfTag">Autorská tvorba</div>
+    <h2 data-i="pfTitle">Vybrané návrhy</h2>
+    <div class="divider"><span></span></div>
+    <p class="lead" data-i="pfSub">Každý motiv kreslíme od nuly na míru klientovi. Níže je ukázka originálních návrhů z našeho ateliéru.</p>
+  </div>
+  <div class="pf" id="pf"></div>
+</section>
+
+<section class="wrap center" id="styles" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="kicker" data-i="stTag">Specializace</div>
+  <h2 data-i="stTitle">Styly, které ovládáme</h2>
+  <div class="divider"><span></span></div>
+  <div class="chips" id="chips"></div>
+</section>
+
+<section class="wrap" id="why">
+  <div class="center">
+    <div class="kicker" data-i="whyTag">Proč Maison Noir</div>
+    <h2 data-i="whyTitle">Zkušenost, které můžete věřit</h2>
+    <div class="divider"><span></span></div>
+  </div>
+  <div class="grid3" id="why"></div>
+</section>
+
+<section class="wrap" id="process" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="center">
+    <div class="kicker" data-i="prTag">Jak to probíhá</div>
+    <h2 data-i="prTitle">Od nápadu k tetování</h2>
+    <div class="divider"><span></span></div>
+  </div>
+  <div class="steps" id="steps"></div>
+</section>
+
+<section class="wrap" id="prices">
+  <div class="center">
+    <div class="kicker" data-i="plTag">Ceník</div>
+    <h2 data-i="plTitle">Transparentní balíčky</h2>
+    <div class="divider"><span></span></div>
+    <p class="lead" data-i="plSub">Orientační ceny. Finální cenu potvrdíme zdarma na konzultaci podle velikosti a detailů.</p>
+  </div>
+  <div class="plans" id="plans"></div>
+  <p class="pnote" data-i="plNote">Ceny jsou orientační a budou potvrzeny na základě individuálního návrhu.</p>
+</section>
+
+<section class="wrap" id="reviews" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="center">
+    <div class="kicker" data-i="rvTag">Recenze klientů</div>
+    <h2 data-i="rvTitle">Co o nás říkají</h2>
+    <div class="divider"><span></span></div>
+  </div>
+  <div class="revs" id="revs"></div>
+</section>
+
+<section class="wrap" id="guard">
+  <div class="guard">
+    <div>
+      <div class="kicker" data-i="gdTag">Bezpečí a kvalita</div>
+      <h2 data-i="gdTitle">Sterilní, licencované, bez kompromisů</h2>
+      <p class="lead" data-i="gdText" style="margin-top:14px">Jednorázové sterilní jehly, certifikované barvy a plně hygienicky schválené prostředí. Vaše zdraví je priorita.</p>
+    </div>
+    <div class="gbadges" id="gbadges"></div>
+  </div>
+</section>
+
+<section class="wrap" id="book">
+  <div class="book">
+    <div class="bk-info">
+      <div class="kicker" data-i="bkTag">Rezervace</div>
+      <h2 data-i="bkTitle" style="margin-top:10px">Pojďme vytvořit váš kousek</h2>
+      <p data-i="bkText" style="margin-top:16px">Napište nám svůj nápad, přibližnou velikost a umístění. Ozveme se s termínem konzultace zdarma.</p>
+      <p><strong data-i="bkAddrL">Atelier</strong><br>Ulice 00, Praha 1</p>
+      <p><strong data-i="bkHoursL">Otevřeno</strong><br><span data-i="bkHours">Út–So 11:00–20:00</span></p>
+      <p><strong>Instagram</strong><br>@maison.noir.praha</p>
+      <p class="mut" data-i="bkVerify">⚠ Zástupné údaje — doplňte skutečný název, adresu, telefon a odkazy.</p>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+      <input required data-i-ph="fName" placeholder="Jméno">
+      <input required data-i-ph="fContact" placeholder="E-mail nebo telefon">
+      <input data-i-ph="fIdea" placeholder="Váš nápad / motiv">
+      <textarea data-i-ph="fDetails" placeholder="Velikost, umístění, reference…"></textarea>
+      <button class="btn gold" type="submit" style="justify-content:center" data-i="fSend">Odeslat poptávku</button>
+      <small class="ok" style="display:none;color:var(--gold2)" data-i="fOk">Děkujeme! Brzy se vám ozveme.</small>
+      <small class="mut" data-i="fNote" style="color:var(--mut)">Formulář je ukázkový — napojím ho na váš e-mail nebo Telegram.</small>
+    </form>
+  </div>
+  <div class="ph-warn" data-i="phWarn">Demo verze: značka „MAISON NOIR“, ceny, recenze a kontakty jsou vymyšlené, grafika je autorská vektorová. Pošlete reálné údaje a fotky prací — nahradím.</div>
+</section>
+
+<footer class="wrap">
+  <div class="ft-grid">
+    <div>
+      <div class="logo" style="font-size:26px">MAISON <b>NOIR</b></div>
+      <p class="mut" data-i="ftAbout" style="margin-top:12px">Prémiový tetovací atelier v srdci Prahy. Autorské návrhy na míru.</p>
+    </div>
+    <div class="mut" style="font-size:13.5px;line-height:2">
+      <div data-i="ftNav1">Portfolio</div><div data-i="ftNav2">Ceník</div>
+      <div data-i="ftNav3">Recenze</div><div data-i="ftNav4">Rezervace</div>
+    </div>
+    <div class="mut" style="font-size:13.5px;line-height:2">
+      Ulice 00, Praha 1<br>@maison.noir.praha<br>© 2026 Maison Noir
+    </div>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a class="btn out" href="#work" data-i="book2">Portfolio</a>
+  <a class="btn gold" href="#book" data-i="book">Rezervovat</a>
+</div>
+
+<script>
+/* ---------- AUTHORSHIP ART: original-looking tattoo sketches ---------- */
+function rotRing(path,count,step,off){let s='';for(let i=0;i<count;i++){s+=`<path d="${path}" transform="rotate(${i*step+(off||0)})"/>`;}return s;}
+function artRose(){
+ let p=rotRing("M0,8 C-22,-18 -22,-58 0,-78 C22,-58 22,-18 0,8 Z",6,60,0);
+ for(let i=0;i<6;i++)p+=`<path class="th" d="M0,-14 C-9,-30 -9,-52 0,-66" transform="rotate(${i*60})"/>`;
+ p+=rotRing("M0,4 C-15,-14 -15,-42 0,-52 C15,-42 15,-14 0,4 Z",6,60,30);
+ p+=`<path d="M0,6 C-9,-6 -9,-24 0,-30 C8,-24 8,-10 2,-6"/><path class="th" d="M0,2 C-5,-4 -5,-16 0,-20"/>`;
+ p+=`<path d="M0,-6 l.01,0" style="stroke-width:5"/>`;
+ return `<svg viewBox="0 0 220 300"><g transform="translate(110,100)">${p}</g>`
+ +`<path d="M110,176 L110,288"/>`
+ +`<path d="M110,212 C86,206 74,190 77,174 C98,178 111,194 110,212 Z"/><path class="th" d="M90,186 C98,192 104,200 108,208"/>`
+ +`<path d="M110,244 C134,238 146,222 143,206 C122,210 109,226 110,244 Z"/><path class="th" d="M130,218 C122,224 116,232 112,240"/>`
+ +`<path d="M110,196 L122,189"/><path d="M110,228 L98,221"/></svg>`;
+}
+function artSnake(){
+ let belly='';const pts=[[150,100],[160,118],[150,136],[70,150],[60,168],[72,186],[150,210],[160,228]];
+ pts.forEach(([x,y])=>belly+=`<path class="th" d="M${x},${y} l10,5"/>`);
+ return `<svg viewBox="0 0 220 300">`
+ +`<path d="M112,70 C188,110 48,154 112,192 C166,224 76,252 112,280" style="stroke-width:9"/>`
+ +belly
+ +`<path d="M112,58 L128,70 L112,82 L96,70 Z"/>`
+ +`<path d="M112,58 L112,42"/><path d="M112,42 L103,32"/><path d="M112,42 L121,32"/>`
+ +`<path d="M105,68 l.01,0" style="stroke-width:4"/>`
+ +`<path class="th" d="M112,82 C118,88 118,96 112,100"/></svg>`;
+}
+function artMoth(){
+ const L=`<path d="M0,-42 C-46,-78 -86,-52 -74,-12 C-66,16 -20,8 0,-18"/>`
+ +`<path class="th" d="M-10,-32 C-38,-54 -60,-40 -62,-16"/>`
+ +`<path class="th" d="M-16,-20 C-40,-30 -56,-22 -62,-8"/>`
+ +`<path d="M-52,-34 l.01,0" style="stroke-width:7"/>`
+ +`<path d="M0,-8 C-32,8 -44,48 -18,58 C-4,63 -2,34 0,12"/>`
+ +`<path class="th" d="M-8,2 C-26,16 -30,40 -18,52"/>`
+ +`<path d="M-18,34 l.01,0" style="stroke-width:5"/>`;
+ return `<svg viewBox="0 0 220 300"><g transform="translate(110,122)">`
+ +`<g>${L}</g><g transform="scale(-1,1)">${L}</g>`
+ +`<path d="M0,-48 L0,66"/>`
+ +`<path d="M-2,-46 C-10,-60 -17,-70 -24,-76"/><path d="M2,-46 C10,-60 17,-70 24,-76"/>`
+ +`<circle cx="0" cy="-20" r="11"/>`
+ +`<path d="M-5,-23 l.01,0" style="stroke-width:3.4"/><path d="M5,-23 l.01,0" style="stroke-width:3.4"/>`
+ +`<path d="M-4,-13 L0,-8 L4,-13"/>`
+ +`<path class="th" d="M0,6 L0,60"/></g></svg>`;
+}
+function artDagger(){
+ return `<svg viewBox="0 0 220 300">`
+ +`<path d="M110,30 L123,154 L97,154 Z"/>`
+ +`<path d="M110,46 L110,150"/><path class="th" d="M104,58 L104,146"/><path class="th" d="M116,58 L116,146"/>`
+ +`<path d="M80,154 L140,154"/>`
+ +`<path d="M80,154 C68,149 68,163 80,160"/><path d="M140,154 C152,149 152,163 140,160"/>`
+ +`<path d="M101,160 L101,214"/><path d="M119,160 L119,214"/>`
+ +`<path class="th" d="M101,174 L119,174"/><path class="th" d="M101,188 L119,188"/><path class="th" d="M101,202 L119,202"/>`
+ +`<circle cx="110" cy="224" r="10"/>`
+ +`<path d="M80,154 C62,142 56,122 68,108 C84,118 93,140 90,156"/>`
+ +`<path class="th" d="M72,120 C80,130 86,142 88,152"/>`
+ +`<path d="M140,154 C158,142 164,122 152,108 C136,118 127,140 130,156"/>`
+ +`<path class="th" d="M148,120 C140,130 134,142 132,152"/></svg>`;
+}
+function artEye(){
+ let rays='';for(let i=0;i<16;i++)rays+=`<path class="th" d="M110,150 m0,-74 l0,-16" transform="rotate(${i*22.5} 110 150)"/>`;
+ return `<svg viewBox="0 0 220 300">${rays}`
+ +`<circle cx="110" cy="150" r="74" class="th"/>`
+ +`<path d="M58,150 C84,116 136,116 162,150 C136,184 84,184 58,150 Z"/>`
+ +`<circle cx="110" cy="150" r="17"/>`
+ +`<path class="th" d="M110,133 a17,17 0 0 1 0,34"/>`
+ +`<path d="M110,150 l.01,0" style="stroke-width:12"/>`
+ +`<path d="M58,150 L45,145"/><path d="M162,150 L175,145"/>`
+ +`<path d="M74,124 L66,114"/><path d="M146,124 L154,114"/>`
+ +`<path d="M74,176 L66,186"/><path d="M146,176 L154,186"/></svg>`;
+}
+function artBfly(){
+ const L=`<path d="M0,-36 C-50,-70 -92,-42 -76,-2 C-68,18 -24,10 0,-14"/>`
+ +`<path class="th" d="M-12,-26 C-42,-48 -62,-30 -62,-4"/>`
+ +`<path d="M-50,-26 l.01,0" style="stroke-width:7"/><path d="M-32,-10 l.01,0" style="stroke-width:3.4"/>`
+ +`<path d="M0,-8 C-30,10 -40,48 -14,58 C-2,62 -2,30 0,10"/>`
+ +`<path class="th" d="M-8,4 C-22,18 -26,42 -16,52"/>`
+ +`<path d="M-16,32 l.01,0" style="stroke-width:5"/>`;
+ return `<svg viewBox="0 0 220 300"><g transform="translate(110,120)">`
+ +`<g>${L}</g><g transform="scale(-1,1)">${L}</g>`
+ +`<path d="M0,-44 L0,60"/><path d="M0,-46 l.01,0" style="stroke-width:10"/>`
+ +`<path d="M-2,-42 C-10,-56 -17,-64 -25,-68"/><path d="M2,-42 C10,-56 17,-64 25,-68"/></g></svg>`;
+}
+const ART=[artRose(),artSnake(),artMoth(),artDagger(),artEye(),artBfly()];
+const PSTYLE=["Fine line","Black & grey","Ornamental","Neo-traditional","Dotwork","Fine line"];
+const AVAT=["M","J","K","A","L","N"];
+
+/* ---------- icons ---------- */
+const IC={
+ custom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21l3-1 11-11-2-2L4 18l-1 3z"/><path d="M14 6l2-2a1.4 1.4 0 012 0l1 1a1.4 1.4 0 010 2l-2 2"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+ star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.6 5.5 6 .8-4.4 4.2 1.1 6L12 17l-5.3 2.5 1.1-6L3.4 9.3l6-.8z"/></svg>',
+ clock:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+ needle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 21L14 10"/><path d="M13 5l6 6-3 3-6-6z"/><path d="M18 2l4 4"/></svg>',
+ heart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>'
+};
+
+const tr={
+cs:{navWork:"Portfolio",navStyles:"Styly",navProcess:"Proces",navPrices:"Ceník",navReviews:"Recenze",book:"Rezervovat",book2:"Portfolio",
+ announce:'✦ Listopadová akce: <b>−20 % na první tetování</b> · volné termíny tento měsíc',
+ heroKicker:"Tetovací atelier · Praha",heroH1:'Umění, které<br><em class="gold">nosíte navždy</em>',heroSub:"Prémiové autorské tetování na míru. Spojujeme preciznost, čistý design a bezpečí v elegantním ateliéru v centru Prahy.",
+ heroCta1:"Nezávazná konzultace",heroCta2:"Prohlédnout portfolio",
+ stats:[['4.9','★','Hodnocení Google'],['12','+','Let praxe'],['3000','+','Spokojených klientů'],['100','%','Sterilní prostředí']],
+ pfTag:"Autorská tvorba",pfTitle:"Vybrané návrhy",pfSub:"Každý motiv kreslíme od nuly na míru klientovi. Níže je ukázka originálních návrhů z našeho ateliéru.",
+ pieces:["Růže","Had","Smrtihlav","Dýka","Oko osudu","Motýl"],avail:"Návrh na míru",
+ stTag:"Specializace",stTitle:"Styly, které ovládáme",
+ chips:["Fine line","Black & grey","Realistika","Ornamentika","Dotwork","Lettering","Neo-traditional","Cover up"],
+ whyTag:"Proč Maison Noir",whyTitle:"Zkušenost, které můžete věřit",
+ why:[['custom','Návrh na míru','Nekopírujeme. Každý motiv vzniká jako originál přesně pro vás a vaši kůži.'],['shield','Maximální hygiena','Jednorázové sterilní jehly, certifikované barvy a plně schválené prostředí.'],['star','Oceňovaní umělci','Tým s mezinárodní praxí a stovkami dokončených projektů.']],
+ prTag:"Jak to probíhá",prTitle:"Od nápadu k tetování",
+ steps:[['01','Konzultace','Probereme nápad, umístění a rozpočet. Zdarma a nezávazně.'],['02','Návrh','Nakreslíme originální skicu na míru a doladíme detaily.'],['03','Tetování','V klidu a bezpečí ateliéru vytvoříme váš kousek.'],['04','Péče','Dostanete instrukce a podporu během celého hojení.']],
+ plTag:"Ceník",plTitle:"Transparentní balíčky",plSub:"Orientační ceny. Finální cenu potvrdíme zdarma na konzultaci podle velikosti a detailů.",
+ plans:[['Small','1 900','Kč','Malý motiv do 8 cm',['Fine line / lettering','Originální návrh','1 sezení','Péče a instrukce'],'Mám zájem'],['Medium','4 500','Kč','Střední motiv / black & grey',['Detailní autorský návrh','1–2 sezení','Stínování a detaily','Následná korekce zdarma'],'Nejoblíbenější'],['Custom','od 8 000','Kč','Velký projekt / rukáv',['Kompletní koncept','Více sezení','Prioritní termíny','Doživotní touch-up*'],'Domluvit']],
+ plFeat:"Nejoblíbenější",plNote:"Ceny jsou orientační a budou potvrzeny na základě individuálního návrhu. *Touch-up dle podmínek studia.",
+ rvTag:"Recenze klientů",rvTitle:"Co o nás říkají",
+ revs:[['Markéta','Praha','Naprostá spokojenost. Návrh byl přesně podle mých představ a výsledek předčil očekávání.'],['Jan','Brno','Čisté, profesionální a bezbolestnější, než jsem čekal. Doporučuji na 100 %.'],['Lucie','Praha','Krásný ateliér a skvělý přístup. Mám tři tetování a vrátím se pro další.']],
+ gdTag:"Bezpečí a kvalita",gdTitle:"Sterilní, licencované, bez kompromisů",gdText:"Jednorázové sterilní jehly, certifikované barvy a plně hygienicky schválené prostředí. Vaše zdraví je naše priorita.",
+ badges:[['shield','Certifikovaná hygiena'],['needle','Jednorázové jehly'],['heart','Veganské barvy'],['clock','Záruka a touch-up']],
+ bkTag:"Rezervace",bkTitle:"Pojďme vytvořit váš kousek",bkText:"Napište nám svůj nápad, přibližnou velikost a umístění. Ozveme se s termínem konzultace zdarma.",
+ bkAddrL:"Atelier",bkHoursL:"Otevřeno",bkHours:"Út–So 11:00–20:00",bkVerify:"⚠ Zástupné údaje — doplňte skutečný název, adresu, telefon a odkazy.",
+ fName:"Jméno",fContact:"E-mail nebo telefon",fIdea:"Váš nápad / motiv",fDetails:"Velikost, umístění, reference…",fSend:"Odeslat poptávku",fOk:"Děkujeme! Brzy se vám ozveme.",fNote:"Formulář je ukázkový — napojím ho na váš e-mail nebo Telegram.",
+ phWarn:"Demo verze: značka „MAISON NOIR“, ceny, recenze a kontakty jsou vymyšlené, grafika je autorská vektorová. Pošlete reálné údaje a fotky prací — nahradím.",
+ ftAbout:"Prémiový tetovací atelier v srdci Prahy. Autorské návrhy na míru.",ftNav1:"Portfolio",ftNav2:"Ceník",ftNav3:"Recenze",ftNav4:"Rezervace"},
+
+ru:{navWork:"Портфолио",navStyles:"Стили",navProcess:"Процесс",navPrices:"Цены",navReviews:"Отзывы",book:"Записаться",book2:"Портфолио",
+ announce:'✦ Акция ноября: <b>−20% на первую тату</b> · есть свободные даты в этом месяце',
+ heroKicker:"Тату-ателье · Прага",heroH1:'Искусство,<br><em class="gold">которое с вами навсегда</em>',heroSub:"Премиальная авторская татуировка под заказ. Точность, чистый дизайн и безопасность в элегантном ателье в центре Праги.",
+ heroCta1:"Бесплатная консультация",heroCta2:"Смотреть портфолио",
+ stats:[['4.9','★','Рейтинг Google'],['12','+','Лет опыта'],['3000','+','Довольных клиентов'],['100','%','Стерильность']],
+ pfTag:"Авторские работы",pfTitle:"Избранные эскизы",pfSub:"Каждый мотив мы рисуем с нуля под клиента. Ниже — примеры оригинальных эскизов нашего ателье.",
+ pieces:["Роза","Змея","Бражник","Кинжал","Око судьбы","Бабочка"],avail:"Эскиз под заказ",
+ stTag:"Специализация",stTitle:"Стили, которыми владеем",
+ chips:["Fine line","Black & grey","Реализм","Орнаментика","Dotwork","Леттеринг","Neo-traditional","Cover up"],
+ whyTag:"Почему Maison Noir",whyTitle:"Опыт, которому можно доверять",
+ why:[['custom','Эскиз под заказ','Мы не копируем. Каждый мотив создаётся как оригинал именно для вас.'],['shield','Максимальная гигиена','Одноразовые стерильные иглы, сертифицированные краски и проверенное помещение.'],['star','Признанные мастера','Команда с международным опытом и сотнями завершённых проектов.']],
+ prTag:"Как это проходит",prTitle:"От идеи к татуировке",
+ steps:[['01','Консультация','Обсудим идею, расположение и бюджет. Бесплатно и ни к чему не обязывает.'],['02','Эскиз','Нарисуем оригинальный эскиз под вас и доработаем детали.'],['03','Татуировка','Спокойно и безопасно создадим вашу работу.'],['04','Уход','Дадим инструкции и поддержку на весь период заживления.']],
+ plTag:"Цены",plTitle:"Прозрачные пакеты",plSub:"Ориентировочные цены. Точную стоимость подтвердим бесплатно на консультации.",
+ plans:[['Small','1 900','Kč','Маленький мотив до 8 см',['Fine line / леттеринг','Оригинальный эскиз','1 сеанс','Уход и инструкции'],'Выбрать'],['Medium','4 500','Kč','Средний мотив / black & grey',['Детальный авторский эскиз','1–2 сеанса','Тени и детали','Бесплатная коррекция'],'Популярный'],['Custom','от 8 000','Kč','Большой проект / рукав',['Полная концепция','Несколько сеансов','Приоритетные даты','Пожизненный touch-up*'],'Обсудить']],
+ plFeat:"Популярный",plNote:"Цены ориентировочные и подтверждаются по индивидуальному эскизу. *Touch-up по условиям студии.",
+ rvTag:"Отзывы клиентов",rvTitle:"Что о нас говорят",
+ revs:[['Маркета','Прага','Полный восторг. Эскиз точно по моим задумкам, результат превзошёл ожидания.'],['Ян','Брно','Чисто, профессионально и менее больно, чем я думал. Рекомендую на 100%.'],['Люция','Прага','Красивое ателье и отличный подход. У меня три тату, и я вернусь ещё.']],
+ gdTag:"Безопасность и качество",gdTitle:"Стерильно, лицензировано, без компромиссов",gdText:"Одноразовые стерильные иглы, сертифицированные краски и полностью одобренное помещение. Ваше здоровье — наш приоритет.",
+ badges:[['shield','Сертифицированная гигиена'],['needle','Одноразовые иглы'],['heart','Веганские краски'],['clock','Гарантия и touch-up']],
+ bkTag:"Запись",bkTitle:"Давайте создадим вашу работу",bkText:"Напишите идею, примерный размер и расположение. Свяжемся и назначим бесплатную консультацию.",
+ bkAddrL:"Ателье",bkHoursL:"Часы работы",bkHours:"Вт–Сб 11:00–20:00",bkVerify:"⚠ Данные-заглушки — укажите реальное название, адрес, телефон и ссылки.",
+ fName:"Имя",fContact:"E-mail или телефон",fIdea:"Ваша идея / мотив",fDetails:"Размер, расположение, референсы…",fSend:"Отправить заявку",fOk:"Спасибо! Скоро свяжемся с вами.",fNote:"Форма демонстрационная — подключу её к вашей почте или Telegram.",
+ phWarn:"Демо-версия: бренд «MAISON NOIR», цены, отзывы и контакты вымышлены, графика — авторская векторная. Пришлите реальные данные и фото работ — заменю.",
+ ftAbout:"Премиальное тату-ателье в сердце Праги. Авторские эскизы под заказ.",ftNav1:"Портфолио",ftNav2:"Цены",ftNav3:"Отзывы",ftNav4:"Запись"},
+
+uk:{navWork:"Портфоліо",navStyles:"Стилі",navProcess:"Процес",navPrices:"Ціни",navReviews:"Відгуки",book:"Записатися",book2:"Портфоліо",
+ announce:'✦ Акція листопада: <b>−20% на перше тату</b> · є вільні дати цього місяця',
+ heroKicker:"Тату-ательє · Прага",heroH1:'Мистецтво,<br><em class="gold">що з вами назавжди</em>',heroSub:"Преміальне авторське татуювання на замовлення. Точність, чистий дизайн і безпека в елегантному ательє в центрі Праги.",
+ heroCta1:"Безкоштовна консультація",heroCta2:"Дивитись портфоліо",
+ stats:[['4.9','★','Рейтинг Google'],['12','+','Років досвіду'],['3000','+','Задоволених клієнтів'],['100','%','Стерильність']],
+ pfTag:"Авторські роботи",pfTitle:"Вибрані ескізи",pfSub:"Кожен мотив ми малюємо з нуля під клієнта. Нижче — приклади оригінальних ескізів нашого ательє.",
+ pieces:["Троянда","Змія","Бражник","Кинджал","Око долі","Метелик"],avail:"Ескіз на замовлення",
+ stTag:"Спеціалізація",stTitle:"Стилі, якими володіємо",
+ chips:["Fine line","Black & grey","Реалізм","Орнаментика","Dotwork","Летеринг","Neo-traditional","Cover up"],
+ whyTag:"Чому Maison Noir",whyTitle:"Досвід, якому можна довіряти",
+ why:[['custom','Ескіз на замовлення','Ми не копіюємо. Кожен мотив створюється як оригінал саме для вас.'],['shield','Максимальна гігієна','Одноразові стерильні голки, сертифіковані фарби та перевірене приміщення.'],['star','Визнані майстри','Команда з міжнародним досвідом і сотнями завершених проєктів.']],
+ prTag:"Як це відбувається",prTitle:"Від ідеї до татуювання",
+ steps:[['01','Консультація','Обговоримо ідею, розташування та бюджет. Безкоштовно й без зобовʼязань.'],['02','Ескіз','Намалюємо оригінальний ескіз під вас і доопрацюємо деталі.'],['03','Татуювання','Спокійно й безпечно створимо вашу роботу.'],['04','Догляд','Дамо інструкції та підтримку на весь період загоєння.']],
+ plTag:"Ціни",plTitle:"Прозорі пакети",plSub:"Орієнтовні ціни. Точну вартість підтвердимо безкоштовно на консультації.",
+ plans:[['Small','1 900','Kč','Малий мотив до 8 см',['Fine line / летеринг','Оригінальний ескіз','1 сеанс','Догляд та інструкції'],'Обрати'],['Medium','4 500','Kč','Середній мотив / black & grey',['Детальний авторський ескіз','1–2 сеанси','Тіні та деталі','Безкоштовна корекція'],'Популярний'],['Custom','від 8 000','Kč','Великий проєкт / рукав',['Повна концепція','Кілька сеансів','Пріоритетні дати','Довічний touch-up*'],'Обговорити']],
+ plFeat:"Популярний",plNote:"Ціни орієнтовні та підтверджуються за індивідуальним ескізом. *Touch-up за умовами студії.",
+ rvTag:"Відгуки клієнтів",rvTitle:"Що про нас кажуть",
+ revs:[['Маркета','Прага','Повний захват. Ескіз точно за моїми задумами, результат перевершив очікування.'],['Ян','Брно','Чисто, професійно й менш болісно, ніж я думав. Рекомендую на 100%.'],['Люція','Прага','Гарне ательє та чудовий підхід. У мене три тату, і я повернуся ще.']],
+ gdTag:"Безпека та якість",gdTitle:"Стерильно, ліцензовано, без компромісів",gdText:"Одноразові стерильні голки, сертифіковані фарби та повністю схвалене приміщення. Ваше здоровʼя — наш пріоритет.",
+ badges:[['shield','Сертифікована гігієна'],['needle','Одноразові голки'],['heart','Веганські фарби'],['clock','Гарантія та touch-up']],
+ bkTag:"Запис",bkTitle:"Створімо вашу роботу",bkText:"Напишіть ідею, приблизний розмір і розташування. Звʼяжемося та призначимо безкоштовну консультацію.",
+ bkAddrL:"Ательє",bkHoursL:"Години роботи",bkHours:"Вт–Сб 11:00–20:00",bkVerify:"⚠ Дані-заглушки — вкажіть справжню назву, адресу, телефон і посилання.",
+ fName:"Імʼя",fContact:"E-mail або телефон",fIdea:"Ваша ідея / мотив",fDetails:"Розмір, розташування, референси…",fSend:"Надіслати заявку",fOk:"Дякуємо! Скоро звʼяжемося з вами.",fNote:"Форма демонстраційна — підключу її до вашої пошти або Telegram.",
+ phWarn:"Демо-версія: бренд «MAISON NOIR», ціни, відгуки та контакти вигадані, графіка — авторська векторна. Надішліть реальні дані та фото робіт — заміню.",
+ ftAbout:"Преміальне тату-ательє в серці Праги. Авторські ескізи на замовлення.",ftNav1:"Портфоліо",ftNav2:"Ціни",ftNav3:"Відгуки",ftNav4:"Запис"},
+
+en:{navWork:"Portfolio",navStyles:"Styles",navProcess:"Process",navPrices:"Pricing",navReviews:"Reviews",book:"Book now",book2:"Portfolio",
+ announce:'✦ November offer: <b>−20% on your first tattoo</b> · limited slots this month',
+ heroKicker:"Tattoo atelier · Prague",heroH1:'Art you<br><em class="gold">wear forever</em>',heroSub:"Premium custom tattoos. Precision, clean design and safety, crafted in an elegant atelier in the heart of Prague.",
+ heroCta1:"Free consultation",heroCta2:"View portfolio",
+ stats:[['4.9','★','Google rating'],['12','+','Years of craft'],['3000','+','Happy clients'],['100','%','Sterile studio']],
+ pfTag:"Original artwork",pfTitle:"Selected designs",pfSub:"Every motif is drawn from scratch, bespoke to the client. Below are original designs from our atelier.",
+ pieces:["Rose","Serpent","Death moth","Dagger","Eye of fate","Butterfly"],avail:"Custom design",
+ stTag:"Specialisation",stTitle:"Styles we master",
+ chips:["Fine line","Black & grey","Realism","Ornamental","Dotwork","Lettering","Neo-traditional","Cover up"],
+ whyTag:"Why Maison Noir",whyTitle:"Experience you can trust",
+ why:[['custom','Bespoke design','We never copy. Every motif is created as an original, just for you and your skin.'],['shield','Uncompromising hygiene','Single-use sterile needles, certified inks and a fully approved environment.'],['star','Award-winning artists','A team with international experience and hundreds of finished projects.']],
+ prTag:"How it works",prTitle:"From idea to ink",
+ steps:[['01','Consultation','We discuss the idea, placement and budget. Free and no obligation.'],['02','Design','We draw an original bespoke sketch and refine the details.'],['03','Tattoo','We craft your piece in the calm, safe atelier.'],['04','Aftercare','You get instructions and support throughout healing.']],
+ plTag:"Pricing",plTitle:"Transparent packages",plSub:"Indicative prices. The final price is confirmed free at the consultation based on size and detail.",
+ plans:[['Small','1,900','CZK','Small motif up to 8 cm',['Fine line / lettering','Original design','1 session','Aftercare & guidance'],'Choose'],['Medium','4,500','CZK','Medium / black & grey',['Detailed custom design','1–2 sessions','Shading & detail','Free touch-up'],'Most popular'],['Custom','from 8,000','CZK','Large project / sleeve',['Full concept','Multiple sessions','Priority booking','Lifetime touch-up*'],'Enquire']],
+ plFeat:"Most popular",plNote:"Prices are indicative and confirmed from your individual design. *Touch-up per studio terms.",
+ rvTag:"Client reviews",rvTitle:"What people say",
+ revs:[['Markéta','Prague','Absolutely delighted. The design was exactly what I imagined and the result exceeded expectations.'],['Jan','Brno','Clean, professional and less painful than I expected. Highly recommend.'],['Lucie','Prague','Beautiful atelier and a wonderful approach. I have three tattoos and I will be back.']],
+ gdTag:"Safety & quality",gdTitle:"Sterile, licensed, no compromise",gdText:"Single-use sterile needles, certified inks and a fully health-approved environment. Your wellbeing is our priority.",
+ badges:[['shield','Certified hygiene'],['needle','Single-use needles'],['heart','Vegan inks'],['clock','Guarantee & touch-up']],
+ bkTag:"Booking",bkTitle:"Let's create your piece",bkText:"Tell us your idea, rough size and placement. We'll reply with a free consultation slot.",
+ bkAddrL:"Atelier",bkHoursL:"Open",bkHours:"Tue–Sat 11:00–20:00",bkVerify:"⚠ Placeholder details — add the real name, address, phone and links.",
+ fName:"Name",fContact:"Email or phone",fIdea:"Your idea / motif",fDetails:"Size, placement, references…",fSend:"Send enquiry",fOk:"Thank you! We'll be in touch soon.",fNote:"The form is a demo — I'll connect it to your email or Telegram.",
+ phWarn:"Demo version: the brand “MAISON NOIR”, prices, reviews and contacts are fictional; the artwork is original vector. Send real details and photos of your work — I'll swap them in.",
+ ftAbout:"A premium tattoo atelier in the heart of Prague. Bespoke designs, made to order.",ftNav1:"Portfolio",ftNav2:"Pricing",ftNav3:"Reviews",ftNav4:"Booking"}};
+
+function render(lang){
+ const d=tr[lang];document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i]').forEach(el=>{const v=d[el.dataset.i];if(v!=null)el.innerHTML=v});
+ document.querySelectorAll('[data-i-ph]').forEach(el=>{const v=d[el.dataset.iPh];if(v!=null)el.placeholder=v});
+ document.getElementById('announce').innerHTML=d.announce;
+ document.getElementById('heroOrn').innerHTML=ART[4];
+ document.getElementById('stats').innerHTML=d.stats.map(s=>
+  `<div class="stat"><div class="n">${s[0]}<small>${s[1]}</small></div><div class="l">${s[2]}</div></div>`).join('');
+ document.getElementById('pf').innerHTML=ART.map((a,i)=>
+  `<article class="piece"><div class="art">${a}</div><div class="meta"><div><div class="pname">${d.pieces[i]}</div><div class="pstyle">${PSTYLE[i]}</div></div><div class="tagpill">${d.avail}</div></div></article>`).join('');
+ document.getElementById('chips').innerHTML=d.chips.map((c,i)=>
+  `<div class="chip">${i%3===0?'<b>✦</b> ':''}${c}</div>`).join('');
+ document.getElementById('why').innerHTML=d.why.map(w=>
+  `<div class="vp"><div class="ic">${IC[w[0]]}</div><h3>${w[1]}</h3><p>${w[2]}</p></div>`).join('');
+ document.getElementById('steps').innerHTML=d.steps.map(s=>
+  `<div class="step"><div class="sn">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></div>`).join('');
+ document.getElementById('plans').innerHTML=d.plans.map((p,i)=>
+  `<div class="plan${i===1?' feat':''}" data-badge="${d.plFeat}"><div class="pt">${p[0]}</div><div class="pp">${p[1]} <small>${p[2]}</small></div><div class="pstyle" style="color:var(--mut);font-size:13px;letter-spacing:.04em;margin-top:4px">${p[3]}</div><ul>${p[4].map(f=>`<li>${f}</li>`).join('')}</ul><a class="btn ${i===1?'gold':'out'}" href="#book" style="justify-content:center">${p[5]}</a></div>`).join('');
+ document.getElementById('revs').innerHTML=d.revs.map((r,i)=>
+  `<div class="rev"><div class="stars">★★★★★</div><p>“${r[2]}”</p><div class="who"><div class="av">${r[0][0]}</div><div><div class="nm">${r[0]}</div><div class="rl">${r[1]}</div></div></div></div>`).join('');
+ document.getElementById('gbadges').innerHTML=d.badges.map(b=>
+  `<div class="gb"><div class="ic">${IC[b[0]]}</div>${b[1]}</div>`).join('');
+ document.title='MAISON NOIR · '+d.navWork;
+}
+document.getElementById('lang').addEventListener('change',e=>render(e.target.value));
+render('cs');
+</script>
+</body></html>
