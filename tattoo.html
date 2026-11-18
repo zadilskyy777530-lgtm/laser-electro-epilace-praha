@@ -35,10 +35,17 @@ h2{font-size:clamp(34px,5.5vw,64px);letter-spacing:-.04em;font-weight:900;margin
 .style h3{font-size:26px;margin:14px 0 8px;letter-spacing:-.02em}
 .style p{color:var(--mut);font-size:15px;line-height:1.5;margin:0}
 .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.gallery a{position:relative;aspect-ratio:3/4;overflow:hidden;display:flex;align-items:flex-end;padding:16px;transition:transform .4s}
-.gallery a span{font:800 12px monospace;letter-spacing:.14em;color:#ffffffcc;text-transform:uppercase;position:relative;z-index:2}
-.gallery a:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff0a 0 3px,transparent 3px 9px);z-index:1}
-.gallery a:hover{transform:scale(.98)}
+.gallery a{position:relative;aspect-ratio:3/4;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:16px;transition:transform .4s,box-shadow .4s}
+.gallery a:before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,#ffffff09 0 3px,transparent 3px 9px);z-index:1}
+.gallery .motif{width:58%;max-width:148px;position:relative;z-index:2;opacity:.9;transition:opacity .4s,transform .5s}
+.gallery .motif svg{width:100%;height:auto;display:block}
+.motif svg path,.motif svg circle,.motif svg line,.motif svg polygon,.hero-art svg path,.hero-art svg circle{fill:none;stroke:#efe9dd;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.gallery span{position:absolute;bottom:15px;left:16px;font:800 11px monospace;letter-spacing:.16em;color:#fff;text-transform:uppercase;z-index:3}
+.gallery a:hover{transform:translateY(-5px);box-shadow:0 22px 44px #0009}
+.gallery a:hover .motif{opacity:1;transform:scale(1.05)}
+.hero-art{position:absolute;right:3%;top:52%;transform:translateY(-50%);width:min(42vw,430px);opacity:.11;z-index:0;pointer-events:none}
+.hero-art svg{width:100%;height:auto}
+.hero>div:not(.hero-art){position:relative;z-index:1}
 .artists{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
 .artist{background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .artist .ph{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;font:900 64px 'Helvetica Neue',Arial;color:#ffffff22;letter-spacing:-.04em}
@@ -84,6 +91,7 @@ footer{border-top:1px solid var(--line);padding-top:40px;padding-bottom:40px;col
 </header>
 
 <section class="hero wrap" id="top">
+  <div class="hero-art" id="heroArt"></div>
   <div>
     <div class="eyebrow" data-i="eyebrow">Praha · Tetovací studio</div>
     <h1 data-i="headline">Tvůj příběh.<br>Navždy na kůži.</h1>
@@ -166,6 +174,13 @@ const G=[
  'linear-gradient(200deg,#1d2a2a,#0c1010)',
  'radial-gradient(130% 100% at 10% 90%,#301521,#110a0d)'];
 const AG=['linear-gradient(145deg,#2c1a16,#120c0b)','linear-gradient(145deg,#211a2e,#0e0b12)','linear-gradient(145deg,#232323,#0f0f0f)'];
+const M=[
+/*rose*/`<svg viewBox="0 0 200 260"><path d="M100,118 L100,236"/><path d="M100,150 C86,146 76,134 78,122 C94,124 101,136 100,150 Z"/><path d="M100,186 C120,182 130,170 128,158 C112,160 101,172 100,186 Z"/><path d="M100,168 L112,162"/><path d="M100,204 L88,198"/><g transform="translate(100,96)"><path d="M0,6 C-16,-12 -16,-42 0,-54 C16,-42 16,-12 0,6 Z"/><path d="M0,6 C-16,-12 -16,-42 0,-54 C16,-42 16,-12 0,6 Z" transform="rotate(72)"/><path d="M0,6 C-16,-12 -16,-42 0,-54 C16,-42 16,-12 0,6 Z" transform="rotate(144)"/><path d="M0,6 C-16,-12 -16,-42 0,-54 C16,-42 16,-12 0,6 Z" transform="rotate(216)"/><path d="M0,6 C-16,-12 -16,-42 0,-54 C16,-42 16,-12 0,6 Z" transform="rotate(288)"/><path d="M0,2 C-9,-9 -9,-25 0,-32 C9,-25 9,-9 0,2 Z" transform="rotate(36)"/><path d="M0,2 C-9,-9 -9,-25 0,-32 C9,-25 9,-9 0,2 Z" transform="rotate(156)"/><path d="M0,2 C-9,-9 -9,-25 0,-32 C9,-25 9,-9 0,2 Z" transform="rotate(276)"/><path d="M0,-11 l.01,0" style="stroke-width:7"/></g></svg>`,
+/*snake*/`<svg viewBox="0 0 200 260"><path d="M100,56 C162,94 50,134 100,170 C142,199 70,222 100,242"/><path d="M100,46 L111,56 L100,66 L89,56 Z"/><path d="M100,46 L100,36"/><path d="M100,36 L94,29"/><path d="M100,36 L106,29"/><path d="M96,54 l.01,0" style="stroke-width:3.4"/><path d="M132,96 l7,4"/><path d="M70,132 l-7,4"/><path d="M128,176 l7,4"/></svg>`,
+/*dagger*/`<svg viewBox="0 0 200 260"><path d="M100,30 L110,122 L90,122 Z"/><path d="M100,44 L100,118"/><path d="M74,122 L126,122"/><path d="M74,122 C66,119 66,129 74,128"/><path d="M126,122 C134,119 134,129 126,128"/><path d="M93,128 L93,166"/><path d="M107,128 L107,166"/><path d="M93,140 L107,140"/><path d="M93,153 L107,153"/><circle cx="100" cy="174" r="8"/></svg>`,
+/*moth*/`<svg viewBox="0 0 200 260"><path d="M100,92 L100,174"/><path d="M100,90 l.01,0" style="stroke-width:11"/><path d="M100,84 C92,72 86,64 79,60"/><path d="M100,84 C108,72 114,64 121,60"/><path d="M100,106 C60,74 34,94 44,122 C51,142 85,137 100,120"/><path d="M100,106 C140,74 166,94 156,122 C149,142 115,137 100,120"/><path d="M100,126 C78,140 70,166 89,172 C99,175 100,155 100,135"/><path d="M100,126 C122,140 130,166 111,172 C101,175 100,155 100,135"/><path d="M64,110 l.01,0" style="stroke-width:7"/><path d="M136,110 l.01,0" style="stroke-width:7"/></svg>`,
+/*eye*/`<svg viewBox="0 0 200 260"><path d="M100,50 L162,174 L38,174 Z"/><path d="M62,132 C82,112 118,112 138,132 C118,152 82,152 62,132 Z"/><circle cx="100" cy="132" r="12"/><path d="M100,132 l.01,0" style="stroke-width:8"/><path d="M100,38 L100,28"/><path d="M152,184 L160,192"/><path d="M48,184 L40,192"/></svg>`,
+/*swallow*/`<svg viewBox="0 0 200 260"><path d="M48,136 C74,116 112,112 152,94"/><path d="M152,94 C130,104 112,120 106,138"/><path d="M48,136 C74,158 114,156 134,144"/><path d="M48,136 C40,131 40,143 49,140"/><path d="M134,144 L172,150"/><path d="M118,140 L150,170"/><path d="M126,142 L162,161"/><path d="M50,133 L39,130"/><path d="M58,130 l.01,0" style="stroke-width:3.4"/></svg>`];
 const amounts=[1500,2500,'4000+','6000+','1200+'];
 const tr={
 cs:{brand:"INKHOUSE PRAHA",navStyles:"Styly",navWork:"Práce",navArtists:"Umělci",navPrices:"Ceník",navFaq:"FAQ",navContact:"Kontakt",
@@ -225,7 +240,8 @@ function render(lang){
  document.getElementById('stylesGrid').innerHTML=d.styles.map((s,i)=>
   `<div class="style"><div class="n">0${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
  document.getElementById('gallery').innerHTML=G.map((bg,i)=>
-  `<a href="#work" style="background:${bg}"><span>FOTO ${String(i+1).padStart(2,'0')}</span></a>`).join('');
+  `<a href="#work" style="background:${bg}"><div class="motif">${M[i]}</div><span>${d.styles[i][0]}</span></a>`).join('');
+ document.getElementById('heroArt').innerHTML=M[1];
  document.getElementById('artistsGrid').innerHTML=d.artists.map((a,i)=>
   `<div class="artist"><div class="ph" style="background:${AG[i]}">${a[0].trim().charAt(0)}</div><div class="b"><div class="role">${a[1]}</div><h3>${a[0]}</h3><p>${a[2]}</p></div></div>`).join('');
  document.getElementById('priceRows').innerHTML=d.prices.map(p=>
