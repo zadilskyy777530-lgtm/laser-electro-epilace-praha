@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="cs"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>INKHOUSE PRAHA | Tetovací studio</title>
+<meta name="description" content="Tetovací studio v Praze. Autorské návrhy, black &amp; grey, fine line, realistika. Rezervujte si konzultaci.">
+<meta name="robots" content="index,follow"><meta name="theme-color" content="#0d0d0f">
+<style>
+:root{--bg:#0d0d0f;--bg2:#141418;--ink:#f3f1ea;--mut:#9a978d;--acc:#e5431f;--line:#26262b;font-family:'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--bg)}
+*{box-sizing:border-box}body{margin:0;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{padding-left:max(6%,calc((100% - 1180px)/2));padding-right:max(6%,calc((100% - 1180px)/2))}
+header{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px;background:rgba(13,13,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+.logo{font-weight:900;letter-spacing:-.04em;font-size:20px}.logo b{color:var(--acc)}
+nav{display:flex;gap:22px;flex-wrap:wrap}nav a{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}nav a:hover{color:var(--ink)}
+select{font:inherit;background:#1c1c20;color:var(--ink);border:1px solid var(--line);border-radius:30px;padding:9px 14px;cursor:pointer}
+.btn{display:inline-block;background:var(--acc);color:#fff;font-weight:800;letter-spacing:.02em;padding:16px 28px;border-radius:40px;cursor:pointer;border:0;font-size:15px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.ghost{background:transparent;border:1.5px solid var(--ink);color:var(--ink)}
+.hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;padding-bottom:70px;background:linear-gradient(180deg,#0d0d0fbb,#0d0d0f55 40%,#0d0d0ff2),url('https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat}
+.hero .eyebrow{font:800 13px monospace;letter-spacing:.3em;color:var(--acc);text-transform:uppercase}
+.hero h1{font-size:clamp(48px,9.5vw,128px);line-height:1.0;letter-spacing:-.05em;font-weight:900;margin:18px 0 20px;text-transform:uppercase}
+.hero p{font-size:clamp(17px,2vw,21px);color:#d9d7cf;max-width:560px;line-height:1.5}
+.hero-actions{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;background:var(--bg2)}
+.marquee div{display:inline-block;padding:16px 0;font:900 22px/1 'Helvetica Neue',Arial;letter-spacing:.02em;text-transform:uppercase;animation:scroll 26s linear infinite}
+.marquee span{color:var(--acc);margin:0 6px}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+section{padding-top:84px;padding-bottom:84px}
+.tag{font:800 12px monospace;letter-spacing:.26em;color:var(--acc);text-transform:uppercase}
+h2{font-size:clamp(34px,5.5vw,64px);letter-spacing:-.04em;font-weight:900;margin:12px 0 30px;text-transform:uppercase;line-height:1}
+.lead{color:var(--mut);max-width:620px;font-size:18px;line-height:1.6}
+.styles{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.style{background:var(--bg);padding:30px 26px;transition:background .2s}
+.style:hover{background:var(--bg2)}
+.style .n{font:800 13px monospace;color:var(--mut)}
+.style h3{font-size:26px;margin:14px 0 8px;letter-spacing:-.02em}
+.style p{color:var(--mut);font-size:15px;line-height:1.5;margin:0}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery a{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1c1c20;display:block}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .5s,filter .5s;filter:grayscale(.2)}
+.gallery a:hover img{transform:scale(1.07);filter:grayscale(0)}
+.artists{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.artist{background:var(--bg2);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.artist .ph{aspect-ratio:1/1;background-size:cover;background-position:center;filter:grayscale(.3)}
+.artist .b{padding:22px}.artist h3{margin:0 0 4px;font-size:23px}
+.artist .role{color:var(--acc);font:800 12px monospace;letter-spacing:.14em;text-transform:uppercase}
+.artist p{color:var(--mut);font-size:14px;line-height:1.5;margin:12px 0 0}
+.prices{width:100%;border-collapse:collapse;max-width:760px}
+.prices td{border-bottom:1px solid var(--line);padding:16px 4px;font-size:17px}
+.prices td:last-child{text-align:right;font-weight:800;white-space:nowrap}
+.note{color:var(--mut);font-size:14px;margin-top:16px}
+.faq{max-width:820px}
+.faq details{border-bottom:1px solid var(--line);padding:18px 0}
+.faq summary{cursor:pointer;font-size:19px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';color:var(--acc);font-weight:900}
+.faq details[open] summary::after{content:'−'}
+.faq p{color:var(--mut);line-height:1.6;margin:14px 0 0}
+.contact{background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:46px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact h2{margin-top:0}
+.cinfo p{margin:0 0 14px;font-size:17px}.cinfo .mut{color:var(--mut);font-size:14px}
+form{display:flex;flex-direction:column;gap:12px}
+input,textarea,.fsel{font:inherit;background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:14px 16px}
+textarea{min-height:110px;resize:vertical}
+footer{border-top:1px solid var(--line);padding-top:40px;padding-bottom:40px;color:var(--mut);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
+.ph-warn{background:#2a1a10;border:1px solid var(--acc);color:#ffcbb8;padding:12px 16px;border-radius:10px;font-size:13px;margin-top:22px}
+@media(max-width:820px){nav{display:none}.contact{grid-template-columns:1fr;padding:30px}.gallery{grid-template-columns:repeat(2,1fr)}.hero{min-height:84vh}}
+</style></head><body>
+
+<header class="wrap">
+  <div class="logo" data-i="brand">INK<b>HOUSE</b> PRAHA</div>
+  <nav>
+    <a href="#styles" data-i="navStyles">Styly</a>
+    <a href="#work" data-i="navWork">Práce</a>
+    <a href="#artists" data-i="navArtists">Umělci</a>
+    <a href="#prices" data-i="navPrices">Ceník</a>
+    <a href="#faq" data-i="navFaq">FAQ</a>
+    <a href="#contact" data-i="navContact">Kontakt</a>
+  </nav>
+  <select id="lang" aria-label="Language">
+    <option value="cs">CS</option><option value="ru">RU</option>
+    <option value="uk">UK</option><option value="en">EN</option>
+  </select>
+</header>
+
+<section class="hero wrap" id="top">
+  <div>
+    <div class="eyebrow" data-i="eyebrow">Praha · Tetovací studio</div>
+    <h1 data-i="headline">Tvůj příběh.<br>Navždy na kůži.</h1>
+    <p data-i="intro">Autorské tetování na míru. Black &amp; grey, fine line, realistika a lettering. Čisté studio, zkušení umělci, individuální návrh pro každého.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#contact" data-i="ctaBook">Rezervovat konzultaci</a>
+      <a class="btn ghost" href="#work" data-i="ctaWork">Prohlédnout práce</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee"><div id="mq"></div></div>
+
+<section class="wrap" id="styles">
+  <div class="tag" data-i="tagStyles">01 — Co děláme</div>
+  <h2 data-i="stylesTitle">Styly tetování</h2>
+  <div class="styles" id="stylesGrid"></div>
+</section>
+
+<section class="wrap" id="work">
+  <div class="tag" data-i="tagWork">02 — Portfolio</div>
+  <h2 data-i="workTitle">Vybrané práce</h2>
+  <p class="lead" data-i="workLead" style="margin-bottom:34px">Ukázka hojících se i čerstvých tetování našich umělců. Celé portfolio najdete na našem Instagramu.</p>
+  <div class="gallery" id="gallery"></div>
+</section>
+
+<section class="wrap" id="artists">
+  <div class="tag" data-i="tagArtists">03 — Tým</div>
+  <h2 data-i="artistsTitle">Naši umělci</h2>
+  <div class="artists" id="artistsGrid"></div>
+</section>
+
+<section class="wrap" id="prices">
+  <div class="tag" data-i="tagPrices">04 — Ceník</div>
+  <h2 data-i="pricesTitle">Orientační ceník</h2>
+  <table class="prices"><tbody id="priceRows"></tbody></table>
+  <p class="note" data-i="pricesNote">Konečná cena závisí na velikosti, detailech a umístění motivu. Přesnou cenu potvrdíme na konzultaci.</p>
+</section>
+
+<section class="wrap" id="faq">
+  <div class="tag" data-i="tagFaq">05 — Časté dotazy</div>
+  <h2 data-i="faqTitle">Než přijdete</h2>
+  <div class="faq" id="faqList"></div>
+</section>
+
+<section class="wrap" id="contact">
+  <div class="contact">
+    <div class="cinfo">
+      <h2 data-i="contactTitle">Rezervace</h2>
+      <p data-i="contactText">Napište nám motiv, přibližnou velikost, umístění a pošlete reference. Ozveme se s termínem konzultace.</p>
+      <p><strong data-i="addrLabel">Adresa</strong><br>Ulice 00, Praha</p>
+      <p><strong data-i="hoursLabel">Otevřeno</strong><br><span data-i="hours">Út–So 11:00–20:00</span></p>
+      <p><strong>Instagram</strong><br>@inkhouse.praha</p>
+      <p class="mut" data-i="verify">⚠ Zástupné údaje — před spuštěním doplňte skutečnou adresu, telefon a odkazy.</p>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('.ok').style.display='block'">
+      <input required data-i-ph="fName" placeholder="Jméno">
+      <input required data-i-ph="fContact" placeholder="E-mail nebo telefon">
+      <input data-i-ph="fIdea" placeholder="Motiv / nápad">
+      <textarea data-i-ph="fDetails" placeholder="Velikost, umístění, reference…"></textarea>
+      <button class="btn" type="submit" data-i="fSend">Odeslat poptávku</button>
+      <small class="ok" style="display:none;color:var(--acc)" data-i="fOk">Děkujeme! Ozveme se co nejdříve.</small>
+      <small class="mut" data-i="fFormNote" style="color:var(--mut)">Formulář je zatím ukázkový — napojím ho na váš e-mail nebo Telegram.</small>
+    </form>
+  </div>
+  <div class="ph-warn" data-i="phWarn">Tato verze používá dočasné fotografie z Unsplash a vymyšlené jméno studia „INKHOUSE PRAHA“. Pošlete mi reálné údaje a fotky vašich prací — nahradím je.</div>
+</section>
+
+<footer class="wrap">
+  <div data-i="footBrand">INKHOUSE PRAHA · Tetovací studio</div>
+  <div class="mut">© 2026 · <span data-i="footRights">Všechna práva vyhrazena</span></div>
+</footer>
+
+<script>
+const G=[
+ 'https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?auto=format&fit=crop&w=700&q=80',
+ 'https://images.unsplash.com/photo-1562962230-16e4623d36e6?auto=format&fit=crop&w=700&q=80',
+ 'https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=700&q=80',
+ 'https://images.unsplash.com/photo-1542727365-19732a80dcfd?auto=format&fit=crop&w=700&q=80',
+ 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?auto=format&fit=crop&w=700&q=80',
+ 'https://images.unsplash.com/photo-1613053341085-db794820ce43?auto=format&fit=crop&w=700&q=80'];
+const AP=[
+ 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+ 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80',
+ 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80'];
+const amounts=[1500,2500,'4000+','6000+','1200+'];
+const tr={
+cs:{brand:"INKHOUSE PRAHA",navStyles:"Styly",navWork:"Práce",navArtists:"Umělci",navPrices:"Ceník",navFaq:"FAQ",navContact:"Kontakt",
+ eyebrow:"Praha · Tetovací studio",headline:"Tvůj příběh.<br>Navždy na kůži.",intro:"Autorské tetování na míru. Black & grey, fine line, realistika a lettering. Čisté studio, zkušení umělci, individuální návrh pro každého.",ctaBook:"Rezervovat konzultaci",ctaWork:"Prohlédnout práce",
+ marquee:"Black & grey · Fine line · Realistika · Lettering · Cover up · Flash",
+ tagStyles:"01 — Co děláme",stylesTitle:"Styly tetování",tagWork:"02 — Portfolio",workTitle:"Vybrané práce",workLead:"Ukázka hojících se i čerstvých tetování našich umělců. Celé portfolio najdete na našem Instagramu.",
+ tagArtists:"03 — Tým",artistsTitle:"Naši umělci",tagPrices:"04 — Ceník",pricesTitle:"Orientační ceník",pricesNote:"Konečná cena závisí na velikosti, detailech a umístění motivu. Přesnou cenu potvrdíme na konzultaci.",
+ tagFaq:"05 — Časté dotazy",faqTitle:"Než přijdete",contactTitle:"Rezervace",contactText:"Napište nám motiv, přibližnou velikost, umístění a pošlete reference. Ozveme se s termínem konzultace.",addrLabel:"Adresa",hoursLabel:"Otevřeno",hours:"Út–So 11:00–20:00",verify:"⚠ Zástupné údaje — před spuštěním doplňte skutečnou adresu, telefon a odkazy.",
+ fName:"Jméno",fContact:"E-mail nebo telefon",fIdea:"Motiv / nápad",fDetails:"Velikost, umístění, reference…",fSend:"Odeslat poptávku",fOk:"Děkujeme! Ozveme se co nejdříve.",fFormNote:"Formulář je zatím ukázkový — napojím ho na váš e-mail nebo Telegram.",
+ phWarn:"Tato verze používá dočasné fotografie z Unsplash a vymyšlené jméno studia „INKHOUSE PRAHA“. Pošlete mi reálné údaje a fotky vašich prací — nahradím je.",footBrand:"INKHOUSE PRAHA · Tetovací studio",footRights:"Všechna práva vyhrazena",
+ styles:[["Black & grey","Jemné přechody a stíny v černošedé. Portréty, zvířata, náboženské i realistické motivy."],["Fine line","Tenké, precizní linky. Minimalistické a jemné návrhy, jména, drobné symboly."],["Realistika","Fotorealistické tetování s důrazem na detail a hloubku."],["Lettering","Nápisy, citáty a kaligrafie v různých fontech."],["Cover up","Překrytí nebo oprava starých tetování novým návrhem."],["Flash & autorské","Hotové motivy k výběru i originální návrh na míru."]],
+ artists:[["Alex","Rezident · Black & grey","Specializace na realistiku a jemné stínování. 8+ let praxe."],["Nina","Rezident · Fine line","Minimalistické a floral návrhy, decentní linky."],["Host umělec","Guest spot","Pravidelně hostíme umělce z celé Evropy — sledujte Instagram."]],
+ prices:[["Minimální cena / malý motiv","1 500 Kč"],["Střední motiv (do 10 cm)","2 500 Kč"],["Hodinová sazba","od 2 000 Kč/h"],["Rukáv / velký projekt","6 000+ Kč"],["Konzultace & návrh","zdarma"]],
+ faq:[["Bolí to?","Vnímání bolesti je individuální a závisí na umístění. Většina klientů to zvládá bez problémů; citlivější partie řešíme v kratších sezeních."],["Od kolika let?","Tetujeme pouze osoby starší 18 let s platným dokladem totožnosti. Bez výjimek."],["Jak se připravit?","Vyspěte se, najezte se, nepijte předchozí den alkohol a přijďte v pohodlném oblečení k danému místu."],["Jak pečovat o čerstvé tetování?","Dostanete podrobné instrukce. Myjte jemně, nevystavujte slunci a bazénu a používejte doporučený krém po dobu hojení (2–4 týdny)."],["Je potřeba záloha?","Ano, termín potvrzujeme nevratnou zálohou, která se odečte z konečné ceny tetování."]]},
+ru:{brand:"INKHOUSE PRAHA",navStyles:"Стили",navWork:"Работы",navArtists:"Мастера",navPrices:"Цены",navFaq:"Вопросы",navContact:"Контакты",
+ eyebrow:"Прага · Тату-студия",headline:"Твоя история.<br>Навсегда на коже.",intro:"Авторская татуировка под заказ. Black & grey, fine line, реализм и леттеринг. Чистая студия, опытные мастера, индивидуальный эскиз для каждого.",ctaBook:"Записаться на консультацию",ctaWork:"Смотреть работы",
+ marquee:"Black & grey · Fine line · Реализм · Леттеринг · Перекрытие · Флэш",
+ tagStyles:"01 — Что делаем",stylesTitle:"Стили татуировки",tagWork:"02 — Портфолио",workTitle:"Избранные работы",workLead:"Примеры свежих и заживших татуировок наших мастеров. Полное портфолио — в нашем Instagram.",
+ tagArtists:"03 — Команда",artistsTitle:"Наши мастера",tagPrices:"04 — Цены",pricesTitle:"Ориентировочные цены",pricesNote:"Итоговая цена зависит от размера, детализации и расположения. Точную стоимость подтвердим на консультации.",
+ tagFaq:"05 — Частые вопросы",faqTitle:"Перед визитом",contactTitle:"Запись",contactText:"Напишите мотив, примерный размер, расположение и пришлите референсы. Свяжемся с вами по поводу консультации.",addrLabel:"Адрес",hoursLabel:"Часы работы",hours:"Вт–Сб 11:00–20:00",verify:"⚠ Данные-заглушки — перед запуском укажите реальный адрес, телефон и ссылки.",
+ fName:"Имя",fContact:"E-mail или телефон",fIdea:"Идея / мотив",fDetails:"Размер, расположение, референсы…",fSend:"Отправить заявку",fOk:"Спасибо! Свяжемся с вами в ближайшее время.",fFormNote:"Форма пока демонстрационная — подключу её к вашей почте или Telegram.",
+ phWarn:"В этой версии используются временные фото с Unsplash и вымышленное название студии «INKHOUSE PRAHA». Пришлите реальные данные и фото ваших работ — заменю.",footBrand:"INKHOUSE PRAHA · Тату-студия",footRights:"Все права защищены",
+ styles:[["Black & grey","Мягкие переходы и тени в чёрно-серой гамме. Портреты, животные, религиозные и реалистичные мотивы."],["Fine line","Тонкие точные линии. Минималистичные эскизы, имена, мелкие символы."],["Реализм","Фотореалистичные татуировки с акцентом на детали и глубину."],["Леттеринг","Надписи, цитаты и каллиграфия в разных шрифтах."],["Cover up","Перекрытие или исправление старых татуировок новым эскизом."],["Флэш и авторские","Готовые мотивы на выбор и оригинальный эскиз под заказ."]],
+ artists:[["Алекс","Резидент · Black & grey","Специализация — реализм и мягкая растушёвка. Опыт 8+ лет."],["Нина","Резидент · Fine line","Минимализм и флористика, деликатные линии."],["Приглашённый мастер","Guest spot","Регулярно принимаем мастеров со всей Европы — следите в Instagram."]],
+ prices:[["Минимальная цена / маленький мотив","1 500 Kč"],["Средний мотив (до 10 см)","2 500 Kč"],["Почасовая ставка","от 2 000 Kč/ч"],["Рукав / большой проект","6 000+ Kč"],["Консультация и эскиз","бесплатно"]],
+ faq:[["Это больно?","Ощущения индивидуальны и зависят от зоны. Большинство переносит легко; чувствительные места делаем в коротких сеансах."],["С какого возраста?","Татуируем только лиц старше 18 лет с документом. Без исключений."],["Как подготовиться?","Выспитесь, поешьте, не пейте алкоголь накануне и приходите в удобной одежде к нужной зоне."],["Как ухаживать за свежей тату?","Вы получите подробную инструкцию. Мойте аккуратно, избегайте солнца и бассейна, используйте рекомендованный крем весь период заживления (2–4 недели)."],["Нужна ли предоплата?","Да, бронь подтверждаем невозвратной предоплатой, которая вычитается из итоговой стоимости."]]},
+uk:{brand:"INKHOUSE PRAHA",navStyles:"Стилі",navWork:"Роботи",navArtists:"Майстри",navPrices:"Ціни",navFaq:"Питання",navContact:"Контакти",
+ eyebrow:"Прага · Тату-студія",headline:"Твоя історія.<br>Назавжди на шкірі.",intro:"Авторське татуювання на замовлення. Black & grey, fine line, реалізм і летеринг. Чиста студія, досвідчені майстри, індивідуальний ескіз для кожного.",ctaBook:"Записатися на консультацію",ctaWork:"Дивитись роботи",
+ marquee:"Black & grey · Fine line · Реалізм · Летеринг · Перекриття · Флеш",
+ tagStyles:"01 — Що робимо",stylesTitle:"Стилі татуювання",tagWork:"02 — Портфоліо",workTitle:"Вибрані роботи",workLead:"Приклади свіжих і загоєних татуювань наших майстрів. Повне портфоліо — у нашому Instagram.",
+ tagArtists:"03 — Команда",artistsTitle:"Наші майстри",tagPrices:"04 — Ціни",pricesTitle:"Орієнтовні ціни",pricesNote:"Підсумкова ціна залежить від розміру, деталізації та розташування. Точну вартість підтвердимо на консультації.",
+ tagFaq:"05 — Часті питання",faqTitle:"Перед візитом",contactTitle:"Запис",contactText:"Напишіть мотив, приблизний розмір, розташування та надішліть референси. Зв'яжемося щодо консультації.",addrLabel:"Адреса",hoursLabel:"Години роботи",hours:"Вт–Сб 11:00–20:00",verify:"⚠ Дані-заглушки — перед запуском вкажіть справжню адресу, телефон і посилання.",
+ fName:"Ім'я",fContact:"E-mail або телефон",fIdea:"Ідея / мотив",fDetails:"Розмір, розташування, референси…",fSend:"Надіслати заявку",fOk:"Дякуємо! Зв'яжемося найближчим часом.",fFormNote:"Форма поки демонстраційна — підключу її до вашої пошти або Telegram.",
+ phWarn:"У цій версії використано тимчасові фото з Unsplash і вигадану назву студії «INKHOUSE PRAHA». Надішліть реальні дані та фото ваших робіт — заміню.",footBrand:"INKHOUSE PRAHA · Тату-студія",footRights:"Усі права захищені",
+ styles:[["Black & grey","М'які переходи й тіні в чорно-сірій гамі. Портрети, тварини, релігійні та реалістичні мотиви."],["Fine line","Тонкі точні лінії. Мінімалістичні ескізи, імена, дрібні символи."],["Реалізм","Фотореалістичні татуювання з акцентом на деталі та глибину."],["Летеринг","Написи, цитати та каліграфія різними шрифтами."],["Cover up","Перекриття або виправлення старих татуювань новим ескізом."],["Флеш і авторські","Готові мотиви на вибір та оригінальний ескіз на замовлення."]],
+ artists:[["Алекс","Резидент · Black & grey","Спеціалізація — реалізм і м'яке розтушування. Досвід 8+ років."],["Ніна","Резидент · Fine line","Мінімалізм і флористика, делікатні лінії."],["Запрошений майстер","Guest spot","Регулярно приймаємо майстрів з усієї Європи — стежте в Instagram."]],
+ prices:[["Мінімальна ціна / малий мотив","1 500 Kč"],["Середній мотив (до 10 см)","2 500 Kč"],["Погодинна ставка","від 2 000 Kč/год"],["Рукав / великий проєкт","6 000+ Kč"],["Консультація та ескіз","безкоштовно"]],
+ faq:[["Це боляче?","Відчуття індивідуальні й залежать від зони. Більшість переносить легко; чутливі місця робимо короткими сеансами."],["З якого віку?","Татуюємо лише осіб старших 18 років із документом. Без винятків."],["Як підготуватися?","Виспіться, поїжте, не вживайте алкоголь напередодні та приходьте у зручному одязі до потрібної зони."],["Як доглядати за свіжим тату?","Ви отримаєте детальну інструкцію. Мийте обережно, уникайте сонця й басейну, використовуйте рекомендований крем весь період загоєння (2–4 тижні)."],["Чи потрібна передоплата?","Так, бронь підтверджуємо неповоротною передоплатою, що віднімається від підсумкової вартості."]]},
+en:{brand:"INKHOUSE PRAHA",navStyles:"Styles",navWork:"Work",navArtists:"Artists",navPrices:"Prices",navFaq:"FAQ",navContact:"Contact",
+ eyebrow:"Prague · Tattoo studio",headline:"Your story.<br>Forever on skin.",intro:"Custom, original tattoos. Black & grey, fine line, realism and lettering. Clean studio, experienced artists, a bespoke design for everyone.",ctaBook:"Book a consultation",ctaWork:"See the work",
+ marquee:"Black & grey · Fine line · Realism · Lettering · Cover up · Flash",
+ tagStyles:"01 — What we do",stylesTitle:"Tattoo styles",tagWork:"02 — Portfolio",workTitle:"Selected work",workLead:"A look at fresh and healed tattoos by our artists. Full portfolio on our Instagram.",
+ tagArtists:"03 — Team",artistsTitle:"Our artists",tagPrices:"04 — Prices",pricesTitle:"Indicative prices",pricesNote:"The final price depends on size, detail and placement. We confirm the exact price at the consultation.",
+ tagFaq:"05 — FAQ",faqTitle:"Before you come",contactTitle:"Booking",contactText:"Tell us the motif, rough size, placement and send references. We'll get back to you with a consultation slot.",addrLabel:"Address",hoursLabel:"Open",hours:"Tue–Sat 11:00–20:00",verify:"⚠ Placeholder details — add the real address, phone and links before launch.",
+ fName:"Name",fContact:"Email or phone",fIdea:"Idea / motif",fDetails:"Size, placement, references…",fSend:"Send enquiry",fOk:"Thank you! We'll be in touch shortly.",fFormNote:"The form is a demo for now — I'll connect it to your email or Telegram.",
+ phWarn:"This version uses temporary Unsplash photos and a made-up studio name “INKHOUSE PRAHA”. Send me the real details and photos of your work — I'll swap them in.",footBrand:"INKHOUSE PRAHA · Tattoo studio",footRights:"All rights reserved",
+ styles:[["Black & grey","Soft gradients and shading in black and grey. Portraits, animals, religious and realistic motifs."],["Fine line","Thin, precise lines. Minimal designs, names, small symbols."],["Realism","Photorealistic tattoos focused on detail and depth."],["Lettering","Scripts, quotes and calligraphy in various fonts."],["Cover up","Covering or reworking old tattoos with a new design."],["Flash & custom","Ready-made flash to pick from, or a fully custom piece."]],
+ artists:[["Alex","Resident · Black & grey","Specialises in realism and soft shading. 8+ years of experience."],["Nina","Resident · Fine line","Minimal and floral designs, delicate linework."],["Guest artist","Guest spot","We regularly host artists from across Europe — follow our Instagram."]],
+ prices:[["Minimum / small piece","CZK 1,500"],["Medium piece (up to 10 cm)","CZK 2,500"],["Hourly rate","from CZK 2,000/h"],["Sleeve / large project","CZK 6,000+"],["Consultation & design","free"]],
+ faq:[["Does it hurt?","Pain is individual and depends on placement. Most clients handle it well; sensitive areas are done in shorter sessions."],["Minimum age?","We tattoo only people over 18 with valid ID. No exceptions."],["How do I prepare?","Sleep well, eat beforehand, avoid alcohol the day before, and wear comfortable clothing for the area."],["How do I care for a fresh tattoo?","You'll get detailed aftercare instructions. Wash gently, avoid sun and swimming, and use the recommended cream throughout healing (2–4 weeks)."],["Do I need a deposit?","Yes, we confirm the appointment with a non-refundable deposit that is deducted from the final price."]]}};
+
+function render(lang){
+ const d=tr[lang];document.documentElement.lang=lang;
+ document.querySelectorAll('[data-i]').forEach(el=>{const v=d[el.dataset.i];if(v!=null)el.innerHTML=v});
+ document.querySelectorAll('[data-i-ph]').forEach(el=>{const v=d[el.dataset.iPh];if(v!=null)el.placeholder=v});
+ document.getElementById('mq').textContent=(d.marquee+' · ').repeat(4);
+ document.getElementById('stylesGrid').innerHTML=d.styles.map((s,i)=>
+  `<div class="style"><div class="n">0${i+1}</div><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('');
+ document.getElementById('gallery').innerHTML=G.map(u=>
+  `<a href="#work"><img loading="lazy" src="${u}" alt="Tattoo work"></a>`).join('');
+ document.getElementById('artistsGrid').innerHTML=d.artists.map((a,i)=>
+  `<div class="artist"><div class="ph" style="background-image:url('${AP[i]}')"></div><div class="b"><div class="role">${a[1]}</div><h3>${a[0]}</h3><p>${a[2]}</p></div></div>`).join('');
+ document.getElementById('priceRows').innerHTML=d.prices.map(p=>
+  `<tr><td>${p[0]}</td><td>${p[1]}</td></tr>`).join('');
+ document.getElementById('faqList').innerHTML=d.faq.map(f=>
+  `<details><summary>${f[0]}</summary><p>${f[1]}</p></details>`).join('');
+ document.title=d.brand+' | '+d.navContact;
+}
+document.getElementById('lang').addEventListener('change',e=>render(e.target.value));
+render('cs');
+</script>
+</body></html>
