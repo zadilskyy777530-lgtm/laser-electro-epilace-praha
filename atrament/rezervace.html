@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rezervace · Atrament</title>
+<meta name="description" content="Sestavte si tetování a hned uvidíte odhad ceny. Rezervace v ateliéru Atrament, Praha 3.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="book">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="book.kick">Konstruktor</p>
+    <h1 class="inkfill" data-i="book.h1">Rezervace</h1>
+    <p class="lead" data-i="book.lead"></p>
+  </section>
+
+  <form class="wrap book" id="bk" novalidate style="padding-bottom:90px">
+    <div>
+      <section class="step">
+        <div class="step-h"><span class="kick">01</span><h2 data-i="book.s1"></h2></div>
+        <div class="side-toggle" role="group" id="sides">
+          <button type="button" class="chip" data-side="front" aria-pressed="true" data-i="book.front"></button>
+          <button type="button" class="chip" data-side="back" aria-pressed="false" data-i="book.back"></button>
+        </div>
+        <div class="bodymap">
+          <svg id="body" viewBox="0 0 220 460" role="group">
+            <circle class="figure-static" cx="110" cy="38" r="24"/>
+            <rect class="figure-static" x="76" y="222" width="68" height="22" rx="8"/>
+            <rect class="zone" data-zf="neck" data-zb="neck" x="100" y="62" width="20" height="22" rx="5"/>
+            <rect class="zone" data-zf="chest" data-zb="blades" x="70" y="84" width="80" height="72" rx="16"/>
+            <rect class="zone" data-zf="belly" data-zb="lowback" x="76" y="158" width="68" height="62" rx="12"/>
+            <rect class="zone" data-zf="ribs" data-zb="ribs" x="64" y="118" width="11" height="58" rx="5"/>
+            <rect class="zone" data-zf="ribs" data-zb="ribs" x="145" y="118" width="11" height="58" rx="5"/>
+            <rect class="zone" data-zf="upperarm" data-zb="upperarm" x="42" y="88" width="22" height="76" rx="11" transform="rotate(10 53 126)"/>
+            <rect class="zone" data-zf="upperarm" data-zb="upperarm" x="156" y="88" width="22" height="76" rx="11" transform="rotate(-10 167 126)"/>
+            <rect class="zone" data-zf="forearm" data-zb="forearm" x="30" y="166" width="19" height="72" rx="9" transform="rotate(8 39.5 202)"/>
+            <rect class="zone" data-zf="forearm" data-zb="forearm" x="171" y="166" width="19" height="72" rx="9" transform="rotate(-8 180.5 202)"/>
+            <ellipse class="zone" data-zf="hand" data-zb="hand" cx="31" cy="255" rx="11" ry="15"/>
+            <ellipse class="zone" data-zf="hand" data-zb="hand" cx="189" cy="255" rx="11" ry="15"/>
+            <rect class="zone" data-zf="thigh" data-zb="thigh" x="76" y="244" width="31" height="94" rx="14"/>
+            <rect class="zone" data-zf="thigh" data-zb="thigh" x="113" y="244" width="31" height="94" rx="14"/>
+            <rect class="zone" data-zf="calf" data-zb="calf" x="79" y="342" width="26" height="80" rx="12"/>
+            <rect class="zone" data-zf="calf" data-zb="calf" x="115" y="342" width="26" height="80" rx="12"/>
+            <ellipse class="zone" data-zf="ankle" data-zb="ankle" cx="92" cy="436" rx="14" ry="10"/>
+            <ellipse class="zone" data-zf="ankle" data-zb="ankle" cx="128" cy="436" rx="14" ry="10"/>
+          </svg>
+          <div>
+            <p style="color:var(--ink-2)" data-i="book.s1_hint"></p>
+            <div class="zone-list" id="zoneList" style="margin-top:14px"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-h"><span class="kick">02</span><h2 data-i="book.s2"></h2></div>
+        <div id="flashSel" hidden style="gap:16px;align-items:center;margin-bottom:16px;padding:14px;border:1.5px dashed var(--stencil)"></div>
+        <div class="optgrid" id="styleList"></div>
+      </section>
+
+      <section class="step">
+        <div class="step-h"><span class="kick">03</span><h2 data-i="book.s3"></h2></div>
+        <div class="size">
+          <div><output id="sizeOut" for="size">10 cm</output> <span class="mono" style="color:var(--ink-2)" data-i="book.s3_unit"></span></div>
+          <input type="range" id="size" min="3" max="50" step="1" value="10" data-i-label="book.s3">
+          <p class="cmp" id="sizeCmp"></p>
+        </div>
+      </section>
+
+      <section class="step">
+        <div class="step-h"><span class="kick">04</span><h2 data-i="book.s4"></h2></div>
+        <div class="optgrid" id="artistList"></div>
+      </section>
+
+      <section class="step">
+        <div class="step-h"><span class="kick">05</span><h2 data-i="book.s5"></h2></div>
+        <div class="form-grid">
+          <div class="field"><label for="fName" data-i="book.f_name"></label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fContact" data-i="book.f_contact"></label><input id="fContact" name="contact" autocomplete="tel" required></div>
+          <div class="field"><label for="fDate" data-i="book.f_date"></label><input id="fDate" name="date" type="date"></div>
+          <div class="field full"><label for="fIdea" data-i="book.f_idea"></label><textarea id="fIdea" name="idea" data-i-ph="book.f_idea_ph"></textarea></div>
+          <label class="check full" for="fOk"><input type="checkbox" id="fOk" required><span data-i="book.f_ok"></span></label>
+        </div>
+      </section>
+    </div>
+
+    <aside class="summary" aria-live="polite">
+      <h2 data-i="book.sum_h"></h2>
+      <dl class="sum-list" id="sum"></dl>
+      <div class="estimate">
+        <p class="mono" style="color:var(--ink-2)" data-i="book.est_l"></p>
+        <p class="v" id="est"></p>
+        <p class="s" id="estSub"></p>
+      </div>
+      <p id="need" hidden style="color:var(--stencil);font-weight:700;margin-bottom:12px"></p>
+      <button class="btn" type="submit" data-i="book.send"></button>
+      <div class="sent" id="sent">
+        <p><b data-i="book.sent_h"></b></p>
+        <p style="margin-top:8px;color:var(--ink-2);font-size:.92rem" data-i="book.sent_p"></p>
+        <div class="copyrow"><button type="button" class="btn small line" id="copyBtn" data-i="book.copy"></button></div>
+        <textarea id="copyText" readonly hidden style="width:100%;min-height:150px;margin-top:10px;font-family:var(--f-mono);font-size:.8rem"></textarea>
+      </div>
+    </aside>
+  </form>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var ZM={neck:1.25,chest:1.15,belly:1.2,blades:1.1,lowback:1.15,ribs:1.35,upperarm:1,forearm:1,hand:1.3,thigh:1,calf:1.05,ankle:1.15};
+var ORDER={front:["neck","chest","belly","ribs","upperarm","forearm","hand","thigh","calf","ankle"],back:["neck","blades","lowback","ribs","upperarm","forearm","hand","thigh","calf","ankle"]};
+var RATE={fine:1800,bg:2000,jp:2200,neo:2100};
+var NEEDLE={fine:"1RL · 3RL",bg:"7RL · 9M1 · 13M1",jp:"9RL · 15M1 · 23M1",neo:"9RL · 7M1"};
+var REC={fine:"nina",bg:"kris",jp:"alex",neo:"kris"};
+var S={side:"front",zone:"forearm",style:"bg",size:10,artist:"any",flash:null,T:null,lang:"cs",bound:false};
+
+function readHash(){
+  var A=window.ATR,h=location.hash.slice(1);
+  if(h.indexOf("flash-")===0){var f=A.data.flash.filter(function(x){return x.id===h.slice(6)&&x.free;})[0];if(f){S.flash=f;S.style="flash";S.artist=f.artist;S.size=Math.max.apply(null,f.size.split("×").map(function(n){return parseInt(n,10);}));}}
+  if(h.indexOf("artist-")===0&&A.artist(h.slice(7)))S.artist=h.slice(7);
+}
+function r100(n){return Math.round(n/100)*100;}
+function calc(){
+  var A=window.ATR,t=S.T.book;
+  if(S.flash)return {main:A.fmt(S.flash.price),sub:t.flash_fixed,needles:A.artist(S.flash.artist).needles};
+  var mult=ZM[S.zone]||1,h=(0.5+1.15*Math.pow(S.size/10,1.55))*mult,est=Math.max(1500,RATE[S.style]*h);
+  var sub=h<=4.5?t.est_1.replace("{h}",String(Math.max(1,Math.round(h*2)/2)).replace(".",S.lang==="en"?".":",")):t.est_n.replace("{n}",Math.ceil(h/4));
+  return {main:A.fmt(r100(est*.85))+" – "+A.fmt(r100(est*1.15)),sub:sub,needles:NEEDLE[S.style]};
+}
+function artistName(){var A=window.ATR;return S.artist==="any"?S.T.book.any:A.artist(S.artist).name;}
+function update(){
+  var A=window.ATR,t=S.T,b=t.book;
+  document.querySelectorAll("#body .zone").forEach(function(z){var id=z.getAttribute(S.side==="front"?"data-zf":"data-zb");z.setAttribute("data-z",id);z.setAttribute("aria-label",t.zones[id]);z.setAttribute("aria-pressed",String(id===S.zone));z.classList.toggle("sel",id===S.zone);});
+  document.querySelectorAll("#sides [data-side]").forEach(function(btn){btn.setAttribute("aria-pressed",String(btn.getAttribute("data-side")===S.side));});
+  document.getElementById("zoneList").innerHTML=ORDER[S.side].map(function(z){return '<button type="button" class="chip" data-zone="'+z+'" aria-pressed="'+(z===S.zone)+'">'+t.zones[z]+'</button>';}).join("");
+  var styles=["fine","bg","jp","neo"].map(function(s){return '<button type="button" class="chip" data-style="'+s+'" aria-pressed="'+(S.style===s)+'"'+(S.flash?' disabled':'')+'>'+t.styles[s]+'</button>';}).join("");
+  document.getElementById("styleList").innerHTML=styles;
+  var fs=document.getElementById("flashSel");
+  if(S.flash){fs.hidden=false;fs.style.display="flex";fs.innerHTML='<div class="art inked" style="height:90px;width:70px;flex:none">'+ART(S.flash.id)+'</div><div style="flex:1"><p class="mono" style="color:var(--stencil)">'+b.flash_sel+'</p><p style="font-weight:700;font-size:1.15rem">'+t.flashData[S.flash.id]+' · '+A.fmt(S.flash.price)+'</p><p style="color:var(--ink-2)">'+S.flash.size+' cm</p></div><button type="button" class="chip" id="clearFlash">'+b.flash_clear+'</button>';}
+  else{fs.hidden=true;fs.style.display="none";fs.innerHTML="";}
+  var sz=document.getElementById("size");sz.value=S.size;sz.disabled=!!S.flash;
+  document.getElementById("sizeOut").textContent=S.size+" cm";
+  var ci=S.size<=4?0:S.size<=9?1:S.size<=14?2:S.size<=24?3:S.size<=35?4:5;
+  document.getElementById("sizeCmp").textContent="≈ "+b.sizes[ci];
+  var rec=S.flash?null:REC[S.style];
+  document.getElementById("artistList").innerHTML='<button type="button" class="chip" data-artist="any" aria-pressed="'+(S.artist==="any")+'">'+b.any+'</button>'+A.data.artists.map(function(a){return '<button type="button" class="chip" data-artist="'+a.id+'" aria-pressed="'+(S.artist===a.id)+'">'+a.name+(a.id===rec?' <span class="c" style="color:var(--ok)">· '+b.rec+'</span>':'')+'</button>';}).join("");
+  var c=calc();
+  document.getElementById("sum").innerHTML='<dt>'+b.sum_zone+'</dt><dd>'+(S.zone?t.zones[S.zone]:b.pick_zone)+'</dd><dt>'+b.sum_style+'</dt><dd>'+(S.flash?t.styles.flash+": "+t.flashData[S.flash.id]:t.styles[S.style])+'</dd><dt>'+b.sum_size+'</dt><dd>'+S.size+' cm</dd><dt>'+b.sum_artist+'</dt><dd>'+artistName()+'</dd><dt>'+b.sum_needles+'</dt><dd class="mono" style="text-transform:none">'+c.needles+'</dd>';
+  document.getElementById("est").textContent=c.main;
+  document.getElementById("estSub").textContent=c.sub;
+}
+function requestText(){
+  var t=S.T,b=t.book,c=calc(),v=function(id){return document.getElementById(id).value.trim();};
+  return [b.req+" · Atrament",b.sum_zone+": "+t.zones[S.zone],b.sum_style+": "+(S.flash?t.styles.flash+" – "+t.flashData[S.flash.id]:t.styles[S.style]),b.sum_size+": "+S.size+" cm",b.sum_artist+": "+artistName(),b.est_l+": "+c.main+" ("+c.sub+")",b.f_date+": "+(v("fDate")||"—"),b.f_idea+": "+(v("fIdea")||"—"),b.f_name+": "+v("fName"),b.f_contact+": "+v("fContact")].join("\n");
+}
+function bind(){
+  S.bound=true;
+  document.getElementById("body").addEventListener("click",function(e){var z=e.target.closest(".zone");if(z){S.zone=z.getAttribute("data-z");update();}});
+  document.getElementById("body").addEventListener("keydown",function(e){var z=e.target.closest(".zone");if(z&&(e.key==="Enter"||e.key===" ")){e.preventDefault();S.zone=z.getAttribute("data-z");update();}});
+  document.querySelectorAll("#body .zone").forEach(function(z){z.setAttribute("tabindex","0");z.setAttribute("role","button");});
+  document.getElementById("sides").addEventListener("click",function(e){var b=e.target.closest("[data-side]");if(!b)return;S.side=b.getAttribute("data-side");var swap={chest:"blades",belly:"lowback",blades:"chest",lowback:"belly"};if(ORDER[S.side].indexOf(S.zone)<0&&swap[S.zone])S.zone=swap[S.zone];update();});
+  document.getElementById("bk").addEventListener("click",function(e){
+    var z=e.target.closest("[data-zone]"),st=e.target.closest("[data-style]"),ar=e.target.closest("[data-artist]");
+    if(z){S.zone=z.getAttribute("data-zone");update();}
+    if(st&&!S.flash){S.style=st.getAttribute("data-style");update();}
+    if(ar){S.artist=ar.getAttribute("data-artist");update();}
+    if(e.target.id==="clearFlash"){S.flash=null;S.style="bg";S.size=10;history.replaceState(null,"",location.pathname);update();}
+  });
+  document.getElementById("size").addEventListener("input",function(e){S.size=+e.target.value;update();});
+  document.getElementById("bk").addEventListener("submit",function(e){
+    e.preventDefault();
+    var need=document.getElementById("need"),miss=["fName","fContact"].filter(function(id){return !document.getElementById(id).value.trim();});
+    if(!document.getElementById("fOk").checked)miss.push("fOk");
+    if(miss.length||!S.zone){need.textContent=S.T.book.need;need.hidden=false;document.getElementById(miss[0]||"fName").focus();return;}
+    need.hidden=true;document.getElementById("sent").classList.add("show");document.getElementById("copyText").value=requestText();
+  });
+  document.getElementById("copyBtn").addEventListener("click",function(){
+    var btn=this,txt=requestText(),ta=document.getElementById("copyText");ta.value=txt;
+    function fallback(){ta.hidden=false;ta.focus();ta.select();}
+    try{navigator.clipboard.writeText(txt).then(function(){btn.textContent=S.T.book.copied;setTimeout(function(){btn.textContent=S.T.book.copy;},1800);},fallback);}catch(err){fallback();}
+  });
+}
+window.renderPage=function(t,lang){
+  S.T=t;S.lang=lang;
+  if(!S.bound){readHash();bind();}
+  update();
+};
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

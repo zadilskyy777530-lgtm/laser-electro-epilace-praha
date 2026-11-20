@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Péče · Atrament</title>
+<meta name="description" content="Jak se hojí tetování den po dni, co dělat a čemu se vyhnout. Časté otázky.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="care">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="care.kick">Péče</p>
+    <h1 class="inkfill" data-i="care.h1">Hojení</h1>
+    <p class="lead" data-i="care.lead"></p>
+  </section>
+
+  <section class="wrap" style="padding-bottom:20px">
+    <div class="heal">
+      <div class="reg">
+        <div class="heal-ph">
+          <img id="healImg" src="img/d-peony.jpg" alt="">
+          <div class="redness" id="red"></div>
+          <div class="flakes" id="flk"></div>
+          <div class="milk" id="mlk"></div>
+        </div>
+      </div>
+      <div>
+        <p class="mono" style="color:var(--stencil)"><span data-i="care.day"></span></p>
+        <div class="dayout"><span id="dayN">3</span></div>
+        <p class="stage-name" id="stName"></p>
+        <p class="stage-text" id="stText"></p>
+        <input type="range" id="day" min="0" max="35" step="1" value="3" data-i-label="care.slider" style="margin-top:18px">
+        <div class="stage-marks" id="marks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="dodont">
+      <div class="yes"><h3 data-i="care.do_h"></h3><ul id="doL"></ul></div>
+      <div class="no"><h3 data-i="care.dont_h"></h3><ul id="dontL"></ul></div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><h2 data-i="care.faq_h"></h2></div>
+    <div class="faq" id="faq"></div>
+  </section>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var C={T:null,bound:false,starts:[0,3,7,15,31]};
+function stageOf(d){return d<=2?0:d<=6?1:d<=14?2:d<=30?3:4;}
+function show(){
+  var t=C.T.care,d=+document.getElementById("day").value,s=stageOf(d),st=t.stages[s];
+  document.getElementById("dayN").textContent=d>=31?"30+":d;
+  document.getElementById("stName").textContent=st[0]+" · "+st[1];
+  document.getElementById("stText").textContent=st[2];
+  var red=Math.max(0,1-d/6),gloss=d<=3?1-d/3:0,flk=Math.max(0,1-Math.abs(d-10)/5),milk=d<13?0:Math.max(0,1-Math.abs(d-19)/12)*.38;
+  document.getElementById("healImg").style.filter="saturate("+(1+.45*red)+") contrast("+(1+.12*gloss-.18*milk)+") blur("+(.7*red).toFixed(2)+"px)";
+  document.getElementById("red").style.opacity=red;
+  document.getElementById("flk").style.opacity=(flk*.85).toFixed(2);
+  document.getElementById("mlk").style.opacity=milk.toFixed(2);
+  document.querySelectorAll("#marks button").forEach(function(b,i){b.setAttribute("aria-pressed",String(i===s));});
+}
+window.renderPage=function(t){
+  C.T=t;var c=t.care;
+  document.getElementById("marks").innerHTML=c.stages.map(function(s,i){return '<button type="button" data-st="'+i+'">'+s[0]+'</button>';}).join("");
+  document.getElementById("doL").innerHTML=c.do.map(function(x){return "<li>"+x+"</li>";}).join("");
+  document.getElementById("dontL").innerHTML=c.dont.map(function(x){return "<li>"+x+"</li>";}).join("");
+  document.getElementById("faq").innerHTML=c.faq.map(function(q){return "<details><summary>"+q[0]+"</summary><p>"+q[1]+"</p></details>";}).join("");
+  if(!C.bound){C.bound=true;
+    document.getElementById("day").addEventListener("input",show);
+    document.getElementById("marks").addEventListener("click",function(e){var b=e.target.closest("[data-st]");if(!b)return;var i=+b.getAttribute("data-st");document.getElementById("day").value=[1,4,10,19,33][i];show();});
+  }
+  show();
+};
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

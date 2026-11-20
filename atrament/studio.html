@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Studio · Atrament</title>
+<meta name="description" content="Tetovací ateliér Atrament na Žižkově: hygiena podle KHS, kresby na míru, kontakt a otevírací doba.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="studio">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="studio.kick">O nás</p>
+    <h1 class="inkfill" data-i="studio.h1">Studio</h1>
+  </section>
+
+  <section class="wrap" style="padding-bottom:60px">
+    <p class="manifest" data-i="studio.manifest"></p>
+  </section>
+
+  <section class="wrap section" style="padding-top:20px">
+    <div class="studio-grid">
+      <div>
+        <p class="lead" data-i="studio.lead"></p>
+        <div class="values" id="values"></div>
+      </div>
+      <div class="studio-photos">
+        <div class="reg"><img src="img/w-process.jpg" alt="" style="object-position:60% 50%"></div>
+        <div class="reg" style="margin-top:48px"><img src="img/d-hands.jpg" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><h2 data-i="studio.contact_h"></h2></div>
+    <div class="studio-grid">
+      <div class="contact-card">
+        <dl>
+          <dt data-i="studio.address_l"></dt><dd><span id="addr" data-i="ftr.address"></span><button type="button" class="copy" id="copyAddr" data-i="studio.copy"></button></dd>
+          <dt data-i="studio.tram_l"></dt><dd data-i="studio.tram"></dd>
+          <dt data-i="studio.hours_l"></dt><dd><table class="hours"><tbody id="hours"></tbody></table></dd>
+          <dt data-i="studio.phone_l"></dt><dd class="mono" style="text-transform:none;font-size:.95rem">+420 000 000 000</dd>
+          <dt data-i="studio.ig_l"></dt><dd><a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">@atrament.praha</a></dd>
+        </dl>
+        <p style="margin-top:22px"><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Seifertova%2C%20Praha%203" target="_blank" rel="noopener" data-i="studio.map"></a></p>
+      </div>
+      <a class="path" href="rezervace.html" style="justify-content:space-between">
+        <div class="art" data-art="eye"></div>
+        <span class="tag" data-i="book.kick"></span>
+        <h3 data-i="home.cta_h"></h3>
+        <span class="go link" data-i="home.cta_btn"></span>
+      </a>
+    </div>
+  </section>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var bound=false;
+window.renderPage=function(t){
+  var s=t.studio;
+  document.querySelectorAll("[data-art]").forEach(function(el){el.innerHTML=ART(el.getAttribute("data-art"));});
+  document.getElementById("values").innerHTML=s.values.map(function(v){return "<div><h3>"+v[0]+"</h3><p>"+v[1]+"</p></div>";}).join("");
+  document.getElementById("hours").innerHTML=s.days.map(function(d){return "<tr><td>"+d[0]+"</td><td>"+d[1]+"</td></tr>";}).join("");
+  if(!bound){bound=true;document.getElementById("copyAddr").addEventListener("click",function(){
+    var b=this,txt=document.getElementById("addr").textContent,T=window.ATR.dict().studio;
+    function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById("addr"));var g=getSelection();g.removeAllRanges();g.addRange(r);}
+    try{navigator.clipboard.writeText(txt).then(function(){b.textContent=T.copied;setTimeout(function(){b.textContent=T.copy;},1600);},sel);}catch(e){sel();}
+  });}
+};
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

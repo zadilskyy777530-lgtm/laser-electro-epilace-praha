@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Flash · Atrament</title>
+<meta name="description" content="Hotové návrhy tetování (flash) ateliéru Atrament. Každý tetujeme jen jednou.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="flash">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="flash.kick">Hotové návrhy</p>
+    <h1 class="inkfill" data-i="flash.h1">Flash</h1>
+    <p class="lead" data-i="flash.lead"></p>
+  </section>
+  <section class="wrap" style="padding-bottom:90px">
+    <div class="filters" id="filters" role="group" aria-label="Filtr"></div>
+    <div class="flash-grid" id="grid"></div>
+    <p class="lead" style="margin-top:28px;font-size:1rem" data-i="flash.note"></p>
+  </section>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var F={only:false,bound:false,T:null};
+window.renderPage=function(t){
+  F.T=t;var A=window.ATR,s=t.flash;
+  document.getElementById("filters").innerHTML='<button type="button" class="chip" data-f="all" aria-pressed="'+!F.only+'">'+s.f_all+'<span class="c">'+A.data.flash.length+'</span></button><button type="button" class="chip" data-f="free" aria-pressed="'+F.only+'">'+s.f_free+'<span class="c">'+A.data.flash.filter(function(f){return f.free;}).length+'</span></button>';
+  document.getElementById("grid").innerHTML=A.data.flash.map(function(f,i){
+    if(F.only&&!f.free)return "";
+    var name=t.flashData[f.id],artist=A.artist(f.artist).name.split(" ")[0];
+    var action=f.free?'<a class="btn small line" href="rezervace.html#flash-'+f.id+'">'+s.want+'</a>':'<button type="button" class="btn small line" disabled>'+s.gone+'</button>';
+    return '<article class="fcard'+(f.free?'':' taken')+'"><span class="no mono">N° '+String(i+1).padStart(2,"0")+'</span><span class="st">'+(f.free?s.free:s.taken)+'</span>'+
+      '<div class="art">'+ART(f.id)+'</div>'+
+      '<div class="body"><div class="row"><h3>'+name+'</h3><span class="price">'+A.fmt(f.price)+'</span></div>'+
+      '<p class="sub">'+f.size+' cm · '+artist+'</p>'+action+'</div></article>';
+  }).join("");
+  if(!F.bound){F.bound=true;document.getElementById("filters").addEventListener("click",function(e){var b=e.target.closest("[data-f]");if(!b)return;F.only=b.getAttribute("data-f")==="free";window.renderPage(F.T);});}
+};
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

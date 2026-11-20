@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Atrament</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Atrament – tetovací ateliér v Praze 3. Kresby na míru, flash, cover-up. Spočítejte si cenu tetování online.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="home">
+<div id="hdr"></div>
+<main>
+  <section class="wrap hero">
+    <div>
+      <p class="kick" data-i="home.kick">Tetovací ateliér · Praha 3</p>
+      <h1 class="inkfill" data-i="home.h1">Od stencilu<br>k <em>inkoustu</em></h1>
+      <p class="lead" data-i="home.lead"></p>
+      <div class="hero-actions">
+        <a class="btn" href="rezervace.html" data-i="home.cta1">Spočítat cenu</a>
+        <a class="btn line" href="prace.html" data-i="home.cta2">Prohlédnout práce</a>
+      </div>
+      <p class="hero-facts mono" id="facts"></p>
+    </div>
+    <figure style="margin:0">
+      <div class="reg">
+        <div class="reveal" id="reveal">
+          <img class="bw" src="img/hero.jpg" alt="" style="object-position:50% 28%">
+          <img class="col" id="revealCol" src="img/hero.jpg" alt="Japonský hřbet a rukáv" style="object-position:50% 28%">
+          <div class="reveal-cap mono"><span data-i="home.cap_l"></span><span data-i="home.cap_r"></span></div>
+        </div>
+      </div>
+      <figcaption class="hint mono" data-i="home.hint"></figcaption>
+    </figure>
+  </section>
+
+  <hr class="rule">
+
+  <section class="wrap section">
+    <div class="section-head"><div><p class="kick" data-i="home.paths_kick"></p><h2 data-i="home.paths_h"></h2></div></div>
+    <div class="paths">
+      <a class="path" href="flash.html"><div class="art" data-art="swallow"></div><span class="tag" data-i="home.p1_tag"></span><h3 data-i="home.p1_h"></h3><p data-i="home.p1_p"></p><span class="go link" data-i="home.p1_go"></span></a>
+      <a class="path" href="rezervace.html"><div class="art" data-art="peony"></div><span class="tag" data-i="home.p2_tag"></span><h3 data-i="home.p2_h"></h3><p data-i="home.p2_p"></p><span class="go link" data-i="home.p2_go"></span></a>
+      <a class="path" href="rezervace.html"><div class="art" data-art="eye"></div><span class="tag" data-i="home.p3_tag"></span><h3 data-i="home.p3_h"></h3><p data-i="home.p3_p"></p><span class="go link" data-i="home.p3_go"></span></a>
+    </div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><div><p class="kick" data-i="home.works_kick"></p><h2 data-i="home.works_h"></h2></div><a class="link" href="prace.html" data-i="home.works_all"></a></div>
+    <div class="strip" id="strip"></div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><div><p class="kick" data-i="home.proc_kick"></p><h2 data-i="home.proc_h"></h2></div></div>
+    <ol class="steps" id="steps"></ol>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><div><p class="kick" data-i="home.art_kick"></p><h2 data-i="home.art_h"></h2></div><a class="link" href="mistri.html" data-i="home.art_all"></a></div>
+    <div class="paths" id="team"></div>
+  </section>
+
+  <section class="wrap section" style="padding-top:0">
+    <div class="section-head"><div><p class="kick" data-i="home.rev_kick"></p><h2 data-i="home.rev_h"></h2></div></div>
+    <div class="quotes" id="quotes"></div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap in">
+      <div><h2 data-i="home.cta_h"></h2><p data-i="home.cta_p"></p></div>
+      <a class="btn" href="rezervace.html" data-i="home.cta_btn"></a>
+    </div>
+  </section>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+window.renderPage=function(t,lang){
+  var A=window.ATR,h=t.home,Q={cs:["„","“"],ru:["«","»"],en:["“","”"]}[lang];
+  document.querySelectorAll("[data-art]").forEach(function(el){el.innerHTML=ART(el.getAttribute("data-art"));});
+  document.getElementById("facts").innerHTML=h.facts.map(function(f){return "<span>"+f+"</span>";}).join("");
+  var pick=["sleeve","peony","floral","cat","botanic","dragon"];
+  document.getElementById("strip").innerHTML=pick.map(function(id){var w=A.data.works.filter(function(x){return x.id===id;})[0];return '<a href="prace.html#'+id+'" aria-label="'+A.esc(t.workData[id][0])+'"><img src="img/'+w.img+'" alt="'+A.esc(t.workData[id][0])+'" loading="lazy"></a>';}).join("");
+  document.getElementById("steps").innerHTML=h.steps.map(function(s,i){return '<li><span class="n">0'+(i+1)+'</span><h3>'+s[0]+'</h3><p>'+s[1]+'</p></li>';}).join("");
+  document.getElementById("team").innerHTML=A.data.artists.map(function(a){var d=t.artistData[a.id];return '<a class="path" href="mistri.html#'+a.id+'"><div class="art">'+ART(a.motif)+'</div><span class="tag">'+d.role+'</span><h3>'+a.name+'</h3><p>'+h.free_from+': <b style="color:var(--ok)">'+d.free+'</b></p></a>';}).join("");
+  document.getElementById("quotes").innerHTML=h.reviews.map(function(q){return '<figure class="quote" style="margin:0"><p>'+Q[0]+q[0]+Q[1]+'</p><footer class="mono">'+q[1]+'</footer></figure>';}).join("");
+  initReveal();
+};
+var revealOn=false;
+function initReveal(){
+  if(revealOn)return;revealOn=true;
+  var box=document.getElementById("reveal"),col=document.getElementById("revealCol");
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hovering=false,t0=performance.now();
+  function set(x,y){col.style.setProperty("--x",x+"px");col.style.setProperty("--y",y+"px");}
+  box.addEventListener("pointermove",function(e){var r=box.getBoundingClientRect();hovering=true;set(e.clientX-r.left,e.clientY-r.top);});
+  box.addEventListener("pointerleave",function(){hovering=false;});
+  if(reduce)return;
+  (function drift(now){if(!hovering){var r=box.getBoundingClientRect(),k=(now-t0)/1000;set(r.width*(.55+.2*Math.sin(k*.55)),r.height*(.42+.18*Math.cos(k*.43)));}requestAnimationFrame(drift);})(t0);
+}
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

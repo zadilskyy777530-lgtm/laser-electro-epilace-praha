@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Mistři · Atrament</title>
+<meta name="description" content="Mistři ateliéru Atrament: japonský styl, fine line, neo-traditional.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="artists">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="artists.kick">Tým</p>
+    <h1 class="inkfill" data-i="artists.h1">Mistři</h1>
+    <p class="lead" data-i="artists.lead"></p>
+  </section>
+  <section class="wrap" id="list" style="padding-bottom:90px"></section>
+</main>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var scrolled=false;
+window.renderPage=function(t){
+  var A=window.ATR,s=t.artists;
+  document.getElementById("list").innerHTML=A.data.artists.map(function(a){
+    var d=t.artistData[a.id];
+    var minis=a.works.map(function(id){var w=A.data.works.filter(function(x){return x.id===id;})[0];return '<a href="prace.html#'+id+'"><img src="img/'+w.img+'" alt="'+A.esc(t.workData[id][0])+'" loading="lazy"></a>';}).join("");
+    return '<article class="artist" id="'+a.id+'">'+
+      '<div class="sig art">'+ART(a.motif)+'</div>'+
+      '<div><h2>'+a.name+'</h2><p class="role mono">'+d.role+'</p><p class="bio">'+d.bio+'</p>'+
+      '<dl class="facts"><dt>'+s.since+'</dt><dd>'+a.since+'</dd><dt>'+s.needles+'</dt><dd class="mono" style="text-transform:none">'+a.needles+'</dd><dt>'+s.free+'</dt><dd class="free">'+d.free+'</dd></dl>'+
+      '<a class="btn" href="rezervace.html#artist-'+a.id+'">'+s.book+' · '+a.name.split(" ")[0]+'</a></div>'+
+      '<div><p class="mono" style="margin-bottom:12px;color:var(--ink-2)">'+s.works+'</p><div class="mini">'+minis+'</div></div>'+
+    '</article>';
+  }).join("");
+  if(!scrolled&&location.hash){scrolled=true;var el=document.getElementById(location.hash.slice(1));if(el)el.scrollIntoView();}
+};
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

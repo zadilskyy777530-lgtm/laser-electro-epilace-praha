@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Práce · Atrament</title>
+<meta name="description" content="Portfolio tetovacího ateliéru Atrament: japonský styl, black & grey, fine line.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="works">
+<div id="hdr"></div>
+<main>
+  <section class="wrap page-head">
+    <p class="kick" data-i="works.kick">Portfolio</p>
+    <h1 class="inkfill" data-i="works.h1">Práce</h1>
+    <p class="lead" data-i="works.lead"></p>
+  </section>
+  <section class="wrap" style="padding-bottom:90px">
+    <div class="filters" id="filters" role="group" aria-label="Filtr"></div>
+    <div class="masonry" id="grid"></div>
+  </section>
+</main>
+<dialog class="lightbox" id="lb" aria-labelledby="lbTitle">
+  <div class="lb">
+    <img id="lbImg" src="" alt="">
+    <div>
+      <p class="kick" id="lbStyle"></p>
+      <h3 id="lbTitle"></h3>
+      <dl id="lbMeta"></dl>
+      <div class="lb-nav">
+        <button type="button" id="lbPrev"></button>
+        <button type="button" id="lbNext"></button>
+        <button type="button" id="lbClose"></button>
+      </div>
+      <p style="margin-top:16px"><a class="btn small" id="lbBook" href="rezervace.html"></a></p>
+    </div>
+  </div>
+</dialog>
+<div id="ftr"></div>
+
+<script src="assets/i18n.js"></script>
+<script src="assets/art.js"></script>
+<script>
+var W={filter:"all",list:[],idx:0,T:null,bound:false};
+var FILTERS=[["all","f_all"],["jp","f_jp"],["bg","f_bg"],["fine","f_fine"],["proc","f_proc"]];
+window.renderPage=function(t){
+  W.T=t;var A=window.ATR;
+  document.getElementById("filters").innerHTML=FILTERS.map(function(f){
+    var n=f[0]==="all"?A.data.works.length:A.data.works.filter(function(w){return w.style===f[0];}).length;
+    return '<button type="button" class="chip" data-f="'+f[0]+'" aria-pressed="'+(W.filter===f[0])+'">'+t.works[f[1]]+'<span class="c">'+n+'</span></button>';
+  }).join("");
+  drawGrid();
+  ["lbPrev","lbNext","lbClose"].forEach(function(id){document.getElementById(id).textContent=t.works[{lbPrev:"lb_prev",lbNext:"lb_next",lbClose:"lb_close"}[id]];});
+  document.getElementById("lbBook").textContent=t.works.lb_book;
+  if(document.getElementById("lb").open)fillLb();
+  if(!W.bound)bind();
+};
+function drawGrid(){
+  var A=window.ATR,t=W.T;
+  W.list=A.data.works.filter(function(w){return W.filter==="all"||w.style===W.filter;});
+  document.getElementById("grid").innerHTML=W.list.map(function(w,i){
+    var d=t.workData[w.id],a=w.artist?A.artist(w.artist).name.split(" ")[0]:"Atrament";
+    return '<button type="button" class="work" data-i2="'+i+'"><img src="img/'+w.img+'" alt="'+A.esc(d[0])+'" loading="lazy"><span class="meta"><b>'+d[0]+'</b><span class="mono">'+a+'</span></span></button>';
+  }).join("");
+}
+function fillLb(){
+  var A=window.ATR,t=W.T,w=W.list[W.idx],d=t.workData[w.id],art=w.artist?A.artist(w.artist):null;
+  var img=document.getElementById("lbImg");img.src="img/"+w.img;img.alt=d[0];
+  document.getElementById("lbStyle").textContent=w.style==="proc"?t.works.f_proc:t.styles[w.style];
+  document.getElementById("lbTitle").textContent=d[0];
+  document.getElementById("lbMeta").innerHTML='<dt>'+t.works.lb_artist+'</dt><dd>'+(art?art.name:"—")+'</dd><dt>'+t.works.lb_place+'</dt><dd>'+d[1]+'</dd><dt>'+t.works.lb_sessions+'</dt><dd>'+d[2]+'</dd>';
+  document.getElementById("lbBook").href="rezervace.html"+(art?"#artist-"+art.id:"");
+}
+function openAt(i){W.idx=(i+W.list.length)%W.list.length;fillLb();var lb=document.getElementById("lb");if(!lb.open){if(lb.showModal)lb.showModal();else lb.setAttribute("open","");}}
+function bind(){
+  W.bound=true;
+  document.getElementById("filters").addEventListener("click",function(e){var b=e.target.closest("[data-f]");if(!b)return;W.filter=b.getAttribute("data-f");window.renderPage(W.T);});
+  document.getElementById("grid").addEventListener("click",function(e){var b=e.target.closest(".work");if(b)openAt(+b.getAttribute("data-i2"));});
+  document.getElementById("lbPrev").addEventListener("click",function(){openAt(W.idx-1);});
+  document.getElementById("lbNext").addEventListener("click",function(){openAt(W.idx+1);});
+  document.getElementById("lbClose").addEventListener("click",function(){document.getElementById("lb").close();});
+  document.getElementById("lb").addEventListener("click",function(e){if(e.target.id==="lb")e.target.close();});
+  document.addEventListener("keydown",function(e){if(!document.getElementById("lb").open)return;if(e.key==="ArrowRight")openAt(W.idx+1);if(e.key==="ArrowLeft")openAt(W.idx-1);});
+  var id=location.hash.slice(1);
+  if(id){for(var i=0;i<W.list.length;i++)if(W.list[i].id===id){openAt(i);break;}}
+}
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
