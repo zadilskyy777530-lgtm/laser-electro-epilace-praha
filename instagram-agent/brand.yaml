@@ -1,0 +1,59 @@
+# Профиль бренда — агент опирается на него при каждой генерации.
+# Правьте свободно: тон, рубрики, цены, частоту публикаций.
+
+name: "Laser Electro Epilace Praha"
+handle: "@laser_electro_epilace_praha"   # TODO: укажите реальный Instagram-аккаунт
+address: "Plzeňská 80, Praha"
+booking: "Napište nám do DM"             # пока нет онлайн-записи
+language: "cs"                            # язык подписей и текста на картинках
+extra_caption_languages: ["uk"]          # дополнительный язык в подписи (можно [])
+timezone: "Europe/Prague"
+
+services:
+  - "Laserová epilace pro ženy i muže"
+  - "Elektroepilace — ošetření jednotlivých chloupků (60 min — 1 200 Kč)"
+
+prices_czk:
+  Podpaží: 1000
+  Klasické bikiny: 1200
+  Hluboké bikiny: 1700
+  Obličej: 1000
+  Horní ret: 500
+  Brada: 600
+  Ruce po lokty: 1200
+  Celé ruce: 1700
+  Hýždě: 1100
+  Lýtka: 1800
+  Celé nohy: 2900
+  Nohy + hluboké bikiny: 4600
+  Elektroepilace (60 min): 1200
+
+style:
+  colors:
+    background: "#f1eee6"   # тёплый светлый
+    dark: "#1b1b1b"
+    accent: "#d3ff63"       # лаймовый акцент
+    lavender: "#c7a3ff"
+  look: >
+    Editorial beauty photography, soft natural daylight, warm neutral and
+    lavender tones, clean minimal Prague apartment or studio interiors,
+    real-looking skin texture (no plastic airbrushing), confident calm mood.
+  voice: >
+    Friendly, confident, modern, short sentences, a bit playful. No pressure
+    selling. Speaks to women and men equally.
+
+# Рубрики, между которыми агент чередует контент
+content_pillars:
+  - "Výsledek: hladká kůže v každodenních situacích (léto, sport, rande)"
+  - "Edukace: jak funguje laser vs. elektroepilace, příprava na ošetření"
+  - "Ceník a konkrétní partie (nohy, podpaží, bikiny, obličej)"
+  - "Muži a epilace (záda, hrudník, vousy na tváři)"
+  - "Mýty a fakta o epilaci"
+  - "Zákulisí studia a péče o kůži po ošetření"
+
+schedule:
+  posts_per_run: 2        # сколько постов в ленту за один запуск
+  stories_per_run: 3      # сколько сторис за один запуск
+  post_hours: ["11:30", "18:30"]
+  story_hours: ["09:00", "13:00", "20:00"]
+  days_ahead: 1           # на какой день вперёд планировать (1 = завтра)

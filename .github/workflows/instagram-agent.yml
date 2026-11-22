@@ -1,0 +1,68 @@
+name: Instagram agent
+
+on:
+  schedule:
+    - cron: "17 5 * * *"   # каждый день ~06:17 по Праге (зимой), готовит контент на завтра
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: "Задание на запуск (акция, тема) — необязательно"
+        required: false
+      posts:
+        description: "Постов в ленту"
+        required: false
+      stories:
+        description: "Сторис"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency: instagram-agent
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: instagram-agent
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Generate and schedule
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          IMAGE_PROVIDER: ${{ vars.IMAGE_PROVIDER || 'openai' }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REPLICATE_API_TOKEN: ${{ secrets.REPLICATE_API_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+          METRICOOL_USER_TOKEN: ${{ secrets.METRICOOL_USER_TOKEN }}
+          METRICOOL_USER_ID: ${{ secrets.METRICOOL_USER_ID }}
+          METRICOOL_BLOG_ID: ${{ secrets.METRICOOL_BLOG_ID }}
+          BRIEF: ${{ inputs.brief }}
+          POSTS: ${{ inputs.posts }}
+          STORIES: ${{ inputs.stories }}
+        run: |
+          ARGS=()
+          [ -n "$BRIEF" ] && ARGS+=(--brief "$BRIEF")
+          [ -n "$POSTS" ] && ARGS+=(--posts "$POSTS")
+          [ -n "$STORIES" ] && ARGS+=(--stories "$STORIES")
+          python agent.py run "${ARGS[@]}"
+      - name: Save generated images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-${{ github.run_id }}
+          path: instagram-agent/output/
+      - name: Remember what was published
+        if: always()
+        run: |
+          git config user.name "instagram-agent"
+          git config user.email "instagram-agent@users.noreply.github.com"
+          git add history.jsonl 2>/dev/null || exit 0
+          git diff --cached --quiet || (git commit -m "Instagram agent: update history" && git push)
