@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Rezervace · Atrament</title>
-<meta name="description" content="Sestavte si tetování a hned uvidíte odhad ceny. Rezervace v ateliéru Atrament, Praha 3.">
+<title>Rezervace · Dubai Tattoo</title>
+<meta name="description" content="Sestavte si tetování a hned uvidíte odhad ceny. Rezervace v ateliéru Dubai Tattoo, Praha 3.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
 <link rel="stylesheet" href="assets/site.css">
@@ -155,7 +155,7 @@ function update(){
 }
 function requestText(){
   var t=S.T,b=t.book,c=calc(),v=function(id){return document.getElementById(id).value.trim();};
-  return [b.req+" · Atrament",b.sum_zone+": "+t.zones[S.zone],b.sum_style+": "+(S.flash?t.styles.flash+" – "+t.flashData[S.flash.id]:t.styles[S.style]),b.sum_size+": "+S.size+" cm",b.sum_artist+": "+artistName(),b.est_l+": "+c.main+" ("+c.sub+")",b.f_date+": "+(v("fDate")||"—"),b.f_idea+": "+(v("fIdea")||"—"),b.f_name+": "+v("fName"),b.f_contact+": "+v("fContact")].join("\n");
+  return [b.req+" · Dubai Tattoo",b.sum_zone+": "+t.zones[S.zone],b.sum_style+": "+(S.flash?t.styles.flash+" – "+t.flashData[S.flash.id]:t.styles[S.style]),b.sum_size+": "+S.size+" cm",b.sum_artist+": "+artistName(),b.est_l+": "+c.main+" ("+c.sub+")",b.f_date+": "+(v("fDate")||"—"),b.f_idea+": "+(v("fIdea")||"—"),b.f_name+": "+v("fName"),b.f_contact+": "+v("fContact")].join("\n");
 }
 function bind(){
   S.bound=true;

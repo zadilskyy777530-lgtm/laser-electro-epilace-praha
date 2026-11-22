@@ -52,7 +52,7 @@
     PAGES.forEach(function(p){links+='<a href="'+p[1]+'"'+(p[0]===page?' aria-current="page"':'')+'>'+t.nav[p[0]]+'</a>';});
     var langs=LANGS.map(function(l){return '<button type="button" data-lang="'+l+'" aria-pressed="'+(l===lang)+'">'+l.toUpperCase()+'</button>';}).join("");
     return '<header class="hdr"><div class="wrap hdr-in">'+
-      '<a class="logo" href="index.html" aria-label="Atrament">ATRAMENT<i></i></a>'+
+      '<a class="logo" href="index.html" aria-label="Dubai Tattoo">DUBAI TATTOO<i></i></a>'+
       '<nav class="nav" aria-label="Menu">'+links+'</nav>'+
       '<div class="hdr-tools"><div class="lang" role="group" aria-label="Language">'+langs+'</div>'+
       '<a class="btn small" href="rezervace.html">'+t.nav.book+'</a>'+
@@ -62,7 +62,7 @@
   function footer(){
     var t=dict(),f=t.ftr,links="";
     PAGES.concat([["book","rezervace.html"]]).forEach(function(p){links+='<a href="'+p[1]+'">'+t.nav[p[0]]+'</a>';});
-    return '<footer class="ftr"><div class="wrap"><div class="ftr-word" aria-hidden="true">ATRAMENT</div>'+
+    return '<footer class="ftr"><div class="wrap"><div class="ftr-word" aria-hidden="true">DUBAI TATTOO</div>'+
       '<div class="ftr-grid"><div><p>'+f.tag+'</p></div>'+
       '<div><h4>'+f.pages+'</h4>'+links+'</div>'+
       '<div><h4>'+f.follow+'</h4><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a></div>'+

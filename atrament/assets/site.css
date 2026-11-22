@@ -91,7 +91,7 @@ body.menu-open{overflow:hidden}
 
 /* footer */
 .ftr{border-top:1px solid var(--line);padding-block:56px 40px;margin-top:40px}
-.ftr-word{overflow:hidden;white-space:nowrap;font-family:var(--f-display);font-weight:800;font-size:clamp(2rem,10.2vw,8.6rem);line-height:.8;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.3px var(--stencil);margin-bottom:40px;user-select:none}
+.ftr-word{overflow:hidden;white-space:nowrap;font-family:var(--f-display);font-weight:800;font-size:clamp(1.5rem,6.6vw,5.6rem);line-height:.8;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.3px var(--stencil);margin-bottom:40px;user-select:none}
 .ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:32px}
 .ftr-grid h4{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stencil);margin:0 0 12px;font-weight:500}
 .ftr-grid a{display:block;text-decoration:none;color:var(--ink-2);padding:3px 0}

@@ -2,7 +2,7 @@
 window.I18N={
 cs:{
  nav:{home:"Domů",works:"Práce",artists:"Mistři",flash:"Flash",care:"Péče",studio:"Studio",book:"Rezervace",menu:"Menu",close:"Zavřít"},
- ftr:{tag:"Tetovací ateliér v Praze. Každá kresba začíná fialovou linkou stencilu.",visit:"Kde nás najdete",address:"Seifertova 00, Praha 3 – Žižkov",hours_l:"Otevřeno",hours:"Út–Pá 11–20 · So 11–18",follow:"Sledujte",pages:"Stránky",demo:"Demo verze: název studia, mistři, ceny a recenze jsou ukázkové. Fotografie jsou dočasné a před spuštěním je nahradíme vašimi.",rights:"© 2026 Atrament"},
+ ftr:{tag:"Tetovací ateliér v Praze. Každá kresba začíná fialovou linkou stencilu.",visit:"Kde nás najdete",address:"Seifertova 00, Praha 3 – Žižkov",hours_l:"Otevřeno",hours:"Út–Pá 11–20 · So 11–18",follow:"Sledujte",pages:"Stránky",demo:"Demo verze: mistři, ceny a recenze jsou ukázkové. Fotografie jsou dočasné a před spuštěním je nahradíme vašimi.",rights:"© 2026 Dubai Tattoo"},
  cur:"Kč",
  styles:{fine:"Fine line",bg:"Black & grey",jp:"Japonský styl",neo:"Neo-traditional",flash:"Flash"},
  zones:{neck:"Krk",chest:"Hrudník",belly:"Břicho",blades:"Lopatky",lowback:"Bedra",ribs:"Žebra",upperarm:"Paže",forearm:"Předloktí",hand:"Ruka",thigh:"Stehno",calf:"Lýtko",ankle:"Kotník"},
@@ -31,7 +31,7 @@ cs:{
   dont_h:"Nedělejte",dont:["Neškrábejte a nestrhávejte šupinky","Žádné slunce, solárium ani bazén 4 týdny","Žádná sauna a vana 2 týdny","Netiskněte tetování těsným oblečením"],
   faq_h:"Časté otázky",
   faq:[["Bolí to?","Záleží na místě. Předloktí a paži snese většina lidí v klidu, žebra, kotníky a krk bolí víc. Přestávky si říkáte sami."],["Od kolika let tetujete?","Od 18 let s občanským průkazem. Bez výjimek."],["Platí se záloha?","Ano, 1 000 Kč při rezervaci termínu. Odečte se z ceny tetování. Při zrušení 48 hodin předem ji převedeme na nový termín."],["Můžu před tetováním pít alkohol?","Ne. 24 hodin před sezením vynechte alkohol a léky na ředění krve. Přijďte najedení a vyspalí."],["Jak dlouho tetování vydrží?","Celý život. Linky se časem mírně rozšíří, proto drobné detaily navrhujeme s rezervou."],["Co když se tetování špatně zahojí?","Napište nám s fotkou. Kontrola je zdarma a touch-up do 3 měsíců také."]]},
- studio:{kick:"O nás",h1:"Studio",manifest:"Tetování není zboží z regálu. Je to kresba, která s vámi bude stárnout, a tak k ní přistupujeme.",lead:"Atrament je malý ateliér na Žižkově. Tři mistři, dvě křesla, žádný spěch. Na každé sezení máme vyhrazený celý blok, takže nikoho nehoníme.",
+ studio:{kick:"O nás",h1:"Studio",manifest:"Tetování není zboží z regálu. Je to kresba, která s vámi bude stárnout, a tak k ní přistupujeme.",lead:"Dubai Tattoo je malý ateliér na Žižkově. Tři mistři, dvě křesla, žádný spěch. Na každé sezení máme vyhrazený celý blok, takže nikoho nehoníme.",
   values:[["Hygiena podle KHS","Provozovnu schválila Krajská hygienická stanice. Jednorázové kartridže, sterilizace v autoklávu, nová fólie na všem."],["Kresba na míru","Nekopírujeme cizí tetování. Reference jsou inspirace, kresba vzniká pro vás."],["Poctivá cena","Cenu řekneme předem a dodržíme ji. Žádné příplatky za stencil ani konzultaci."],["Péče i potom","Kontrola po 4 týdnech a touch-up do 3 měsíců zdarma."]],
   contact_h:"Kontakt",address_l:"Adresa",tram_l:"Tramvaj",tram:"5, 9, 15, 26 · zastávka Lipanská",hours_l:"Otevírací doba",phone_l:"Telefon",ig_l:"Instagram",copy:"Kopírovat",copied:"Zkopírováno",map:"Otevřít v mapách →",
   days:[["Po","zavřeno"],["Út–Pá","11:00–20:00"],["So","11:00–18:00"],["Ne","zavřeno"]]}
@@ -39,7 +39,7 @@ cs:{
 
 ru:{
  nav:{home:"Главная",works:"Работы",artists:"Мастера",flash:"Флеши",care:"Уход",studio:"Студия",book:"Запись",menu:"Меню",close:"Закрыть"},
- ftr:{tag:"Тату-ателье в Праге. Каждый рисунок начинается с фиолетовой линии стенсила.",visit:"Где нас найти",address:"Seifertova 00, Прага 3 – Жижков",hours_l:"Часы работы",hours:"Вт–Пт 11–20 · Сб 11–18",follow:"Мы в сети",pages:"Страницы",demo:"Демо-версия: название, мастера, цены и отзывы примерные. Фотографии временные, перед запуском заменим их на ваши.",rights:"© 2026 Atrament"},
+ ftr:{tag:"Тату-ателье в Праге. Каждый рисунок начинается с фиолетовой линии стенсила.",visit:"Где нас найти",address:"Seifertova 00, Прага 3 – Жижков",hours_l:"Часы работы",hours:"Вт–Пт 11–20 · Сб 11–18",follow:"Мы в сети",pages:"Страницы",demo:"Демо-версия: мастера, цены и отзывы примерные. Фотографии временные, перед запуском заменим их на ваши.",rights:"© 2026 Dubai Tattoo"},
  cur:"Kč",
  styles:{fine:"Fine line",bg:"Black & grey",jp:"Японский стиль",neo:"Neo-traditional",flash:"Флеш"},
  zones:{neck:"Шея",chest:"Грудь",belly:"Живот",blades:"Лопатки",lowback:"Поясница",ribs:"Рёбра",upperarm:"Плечо",forearm:"Предплечье",hand:"Кисть",thigh:"Бедро",calf:"Голень",ankle:"Щиколотка"},
@@ -68,7 +68,7 @@ ru:{
   dont_h:"Не делайте",dont:["Не чешите и не сдирайте корочки","Никакого солнца, солярия и бассейна 4 недели","Никакой сауны и ванны 2 недели","Не давите на татуировку тесной одеждой"],
   faq_h:"Частые вопросы",
   faq:[["Это больно?","Зависит от места. Предплечье и плечо большинство переносит спокойно, рёбра, щиколотки и шея больнее. Перерывы вы просите сами."],["С какого возраста?","С 18 лет с документом. Без исключений."],["Нужна ли предоплата?","Да, 1 000 Kč при бронировании даты. Она вычитается из цены татуировки. При отмене за 48 часов переносим её на новую дату."],["Можно пить алкоголь перед сеансом?","Нет. За 24 часа исключите алкоголь и препараты, разжижающие кровь. Приходите сытыми и выспавшимися."],["Сколько держится татуировка?","Всю жизнь. Линии со временем немного расплываются, поэтому мелкие детали рисуем с запасом."],["Что если татуировка плохо заживёт?","Напишите нам с фото. Осмотр бесплатный, коррекция в течение 3 месяцев тоже."]]},
- studio:{kick:"О нас",h1:"Студия",manifest:"Татуировка не товар с полки. Это рисунок, который будет стареть вместе с вами, и мы так к нему и относимся.",lead:"Atrament — маленькое ателье на Жижкове. Три мастера, два кресла, никакой спешки. На каждый сеанс мы выделяем целый блок времени, поэтому никого не торопим.",
+ studio:{kick:"О нас",h1:"Студия",manifest:"Татуировка не товар с полки. Это рисунок, который будет стареть вместе с вами, и мы так к нему и относимся.",lead:"Dubai Tattoo — маленькое ателье на Жижкове. Три мастера, два кресла, никакой спешки. На каждый сеанс мы выделяем целый блок времени, поэтому никого не торопим.",
   values:[["Гигиена по нормам KHS","Помещение одобрено краевой санитарной станцией (KHS). Одноразовые картриджи, стерилизация в автоклаве, новая плёнка на всём."],["Эскиз под вас","Мы не копируем чужие татуировки. Референсы служат вдохновением, а рисунок создаётся для вас."],["Честная цена","Называем цену заранее и держим её. Никаких доплат за стенсил или консультацию."],["Забота и после","Контроль через 4 недели и коррекция в течение 3 месяцев бесплатно."]],
   contact_h:"Контакты",address_l:"Адрес",tram_l:"Трамвай",tram:"5, 9, 15, 26 · остановка Lipanská",hours_l:"Часы работы",phone_l:"Телефон",ig_l:"Instagram",copy:"Копировать",copied:"Скопировано",map:"Открыть на карте →",
   days:[["Пн","выходной"],["Вт–Пт","11:00–20:00"],["Сб","11:00–18:00"],["Вс","выходной"]]}
@@ -76,7 +76,7 @@ ru:{
 
 en:{
  nav:{home:"Home",works:"Work",artists:"Artists",flash:"Flash",care:"Aftercare",studio:"Studio",book:"Book",menu:"Menu",close:"Close"},
- ftr:{tag:"A tattoo atelier in Prague. Every drawing starts as a violet stencil line.",visit:"Find us",address:"Seifertova 00, Prague 3 – Žižkov",hours_l:"Open",hours:"Tue–Fri 11–20 · Sat 11–18",follow:"Follow",pages:"Pages",demo:"Demo version: the studio name, artists, prices and reviews are examples. Photos are temporary and will be replaced with yours before launch.",rights:"© 2026 Atrament"},
+ ftr:{tag:"A tattoo atelier in Prague. Every drawing starts as a violet stencil line.",visit:"Find us",address:"Seifertova 00, Prague 3 – Žižkov",hours_l:"Open",hours:"Tue–Fri 11–20 · Sat 11–18",follow:"Follow",pages:"Pages",demo:"Demo version: the artists, prices and reviews are examples. Photos are temporary and will be replaced with yours before launch.",rights:"© 2026 Dubai Tattoo"},
  cur:"CZK",
  styles:{fine:"Fine line",bg:"Black & grey",jp:"Japanese",neo:"Neo-traditional",flash:"Flash"},
  zones:{neck:"Neck",chest:"Chest",belly:"Stomach",blades:"Shoulder blades",lowback:"Lower back",ribs:"Ribs",upperarm:"Upper arm",forearm:"Forearm",hand:"Hand",thigh:"Thigh",calf:"Calf",ankle:"Ankle"},
@@ -105,7 +105,7 @@ en:{
   dont_h:"Don’t",dont:["Scratch or pick the flakes","Sun, tanning beds or pools for 4 weeks","Sauna or bath for 2 weeks","Press it under tight clothes"],
   faq_h:"Common questions",
   faq:[["Does it hurt?","It depends on the spot. Most people handle the forearm and upper arm calmly; ribs, ankles and neck hurt more. You call the breaks."],["How old do I need to be?","18 or older, with ID. No exceptions."],["Is there a deposit?","Yes, 1,000 CZK when you book. It comes off the tattoo price. Cancel 48 hours ahead and we move it to a new date."],["Can I drink before my session?","No. Skip alcohol and blood thinners for 24 hours before. Come fed and rested."],["How long does a tattoo last?","For life. Lines spread a little over the years, so we design small details with room to age."],["What if it heals badly?","Message us with a photo. The check is free, and so is a touch-up within 3 months."]]},
- studio:{kick:"About",h1:"Studio",manifest:"A tattoo is not something off the shelf. It is a drawing that will age with you, and that is how we treat it.",lead:"Atrament is a small atelier in Žižkov. Three artists, two chairs, no rush. Every session gets a full block of time, so nobody is hurried.",
+ studio:{kick:"About",h1:"Studio",manifest:"A tattoo is not something off the shelf. It is a drawing that will age with you, and that is how we treat it.",lead:"Dubai Tattoo is a small atelier in Žižkov. Three artists, two chairs, no rush. Every session gets a full block of time, so nobody is hurried.",
   values:[["Hygiene to KHS standards","The studio is approved by the Regional Public Health Authority (KHS). Single-use cartridges, autoclave sterilisation, fresh barrier film on everything."],["Drawn for you","We don’t copy other people’s tattoos. References inspire; the drawing is made for you."],["Honest pricing","We quote up front and stick to it. No extra charge for the stencil or the consultation."],["Care afterwards","Check-up after 4 weeks and a free touch-up within 3 months."]],
   contact_h:"Contact",address_l:"Address",tram_l:"Tram",tram:"5, 9, 15, 26 · stop Lipanská",hours_l:"Opening hours",phone_l:"Phone",ig_l:"Instagram",copy:"Copy",copied:"Copied",map:"Open in maps →",
   days:[["Mon","closed"],["Tue–Fri","11:00–20:00"],["Sat","11:00–18:00"],["Sun","closed"]]}

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Práce · Atrament</title>
-<meta name="description" content="Portfolio tetovacího ateliéru Atrament: japonský styl, black & grey, fine line.">
+<title>Práce · Dubai Tattoo</title>
+<meta name="description" content="Portfolio tetovacího ateliéru Dubai Tattoo: japonský styl, black & grey, fine line.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Syne:wght@700;800&display=swap">
 <link rel="stylesheet" href="assets/site.css">
@@ -61,7 +61,7 @@ function drawGrid(){
   var A=window.ATR,t=W.T;
   W.list=A.data.works.filter(function(w){return W.filter==="all"||w.style===W.filter;});
   document.getElementById("grid").innerHTML=W.list.map(function(w,i){
-    var d=t.workData[w.id],a=w.artist?A.artist(w.artist).name.split(" ")[0]:"Atrament";
+    var d=t.workData[w.id],a=w.artist?A.artist(w.artist).name.split(" ")[0]:"Dubai Tattoo";
     return '<button type="button" class="work" data-i2="'+i+'"><img src="img/'+w.img+'" alt="'+A.esc(d[0])+'" loading="lazy"><span class="meta"><b>'+d[0]+'</b><span class="mono">'+a+'</span></span></button>';
   }).join("");
 }
