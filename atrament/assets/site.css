@@ -90,9 +90,10 @@ body.menu-open{overflow:hidden}
 .menu-btn{display:none;background:none;border:1.5px dashed var(--stencil);padding:8px 12px;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 
 /* footer */
-.ftr{border-top:1px solid var(--line);padding-block:56px 40px;margin-top:40px}
-.ftr-word{overflow:hidden;white-space:nowrap;font-family:var(--f-serif);font-weight:400;font-size:clamp(3.4rem,21.5vw,18rem);line-height:.92;letter-spacing:-.035em;color:var(--ink);margin-bottom:44px;padding-bottom:.06em;user-select:none}
-.ftr-word em{font-style:italic;color:var(--stencil);letter-spacing:-.02em}
+/* footer is a fixed dark band in both themes, so the gold wordmark always sits on black */
+.ftr{--ink:#f1eef6;--ink-2:#a8a1b6;--stencil:#9c86ff;--line:#2a2633;--gold-1:#b8862b;--gold-2:#f3d27a;background:#0f0d14;color:var(--ink);border-top:1px solid var(--line);padding-block:64px 40px;margin-top:40px}
+.ftr-word{overflow:hidden;white-space:nowrap;font-family:'Cinzel',Georgia,'Times New Roman',serif;font-weight:800;font-size:clamp(1.8rem,9.6vw,8.4rem);line-height:1.05;letter-spacing:.04em;margin-bottom:48px;padding-bottom:.04em;user-select:none;
+  background:linear-gradient(100deg,var(--gold-1),var(--gold-2) 45%,var(--gold-1) 70%,var(--gold-2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .ftr-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:32px}
 .ftr-grid h4{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stencil);margin:0 0 12px;font-weight:500}
 .ftr-grid a{display:block;text-decoration:none;color:var(--ink-2);padding:3px 0}

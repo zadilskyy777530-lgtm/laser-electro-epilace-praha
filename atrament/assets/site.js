@@ -62,7 +62,7 @@
   function footer(){
     var t=dict(),f=t.ftr,links="";
     PAGES.concat([["book","rezervace.html"]]).forEach(function(p){links+='<a href="'+p[1]+'">'+t.nav[p[0]]+'</a>';});
-    return '<footer class="ftr"><div class="wrap"><div class="ftr-word" aria-hidden="true">Dubai <em>Tattoo</em></div>'+
+    return '<footer class="ftr"><div class="wrap"><div class="ftr-word" aria-hidden="true">DUBAI TATTOO</div>'+
       '<div class="ftr-grid"><div><p>'+f.tag+'</p></div>'+
       '<div><h4>'+f.pages+'</h4>'+links+'</div>'+
       '<div><h4>'+f.follow+'</h4><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/" target="_blank" rel="noopener">TikTok</a></div>'+
