@@ -116,7 +116,7 @@ html.leaving .wipe{transform:translateY(0);transition:transform .42s cubic-bezie
 /* ---------- HOME ---------- */
 .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:clamp(40px,6vw,84px) clamp(56px,7vw,96px)}
 .hero h1{font-size:clamp(2.6rem,6.6vw,6rem);line-height:.9;letter-spacing:-.035em;margin-top:18px}
-.hero h1 em{font-family:var(--f-serif);font-weight:400;font-style:italic;letter-spacing:-.01em;background:linear-gradient(100deg,var(--gold-a),var(--gold-b) 45%,var(--gold-a) 70%,var(--gold-b));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0}
+.hero h1 em{font-family:var(--f-serif);font-weight:400;font-style:italic;letter-spacing:-.01em}
 .hero .lead{margin-top:26px}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .hero-facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:34px;color:var(--ink-2)}
